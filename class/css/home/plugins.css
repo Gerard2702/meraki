@@ -5003,7 +5003,7 @@ label.control-label {
     content: ''; }
 
 .tparrows.circle {
-  background-image: url(../../../base/img/content/line-icons/white.png);
+  background-image: url(../../plugins/home/revo/img/white.png);
   display: inline-block;
   width: 60px;
   height: 60px;

@@ -20,7 +20,9 @@
 
     <!-- END GLOBAL MANDATORY STYLES -->
     <!-- BEGIN: BASE PLUGINS  -->
-
+    <link href="class/plugins/home/revo/css/revo-slider_css_settings.css" rel="stylesheet" type="text/css"/>
+    <link href="class/plugins/home/revo/css/revo-slider_css_layers.css" rel="stylesheet" type="text/css"/>
+    <link href="class/plugins/home/revo/css/revo-slider_css_navigation.css" rel="stylesheet" type="text/css"/>
     <link href="class/css/home/carousel/style.min.css" rel="stylesheet" type="text/css" />
     <link href="class/css/home/carousel/style-responsive.min.css" rel="stylesheet" type="text/css" />
     <link href="class/plugins/home/cubeportfolio/css/cubeportfolio.min.css" rel="stylesheet" type="text/css" />
@@ -90,13 +92,16 @@
                                             <a href="#about" class="c-link">Quienes Somos</a>
                                         </li>
                                         <li class="c-onepage-link ">
+                                            <a href="#servicios" class="c-link">Servicios</a>
+                                        </li>
+                                        <li class="c-onepage-link ">
                                             <a href="#patrocinadores" class="c-link">Patrocinadores</a>
                                         </li>
                                         <li class="c-onepage-link ">
                                             <a href="#services" class="c-link">Revista</a>
                                         </li>
                                         <li class="c-onepage-link ">
-                                            <a href="#team" class="c-link">Blog</a>
+                                            <a href="blog.php" class="c-link">Blog</a>
                                         </li>
                                         <li class="c-onepage-link ">
                                             <a href="galeria.php" class="c-link">Galeria</a>
@@ -119,6 +124,147 @@
                 </header>
                 <!-- END: HEADER -->
                 <!-- END: LAYOUT/HEADERS/HEADER-ONEPAGE -->
+                
+
+                <!-- BEGIN: PAGE CONTAINER -->
+                <div class="c-layout-page">
+                    <!-- BEGIN: PAGE CONTENT -->
+                    <!-- BEGIN: LAYOUT/SLIDERS/REVO-SLIDER-1 -->
+                    <!-- START REVOLUTION SLIDER 5.0 -->
+                    <section class="c-layout-revo-slider c-layout-revo-slider-1" dir="ltr">
+                        <div class="tp-banner-container tp-fullscreen tp-fullscreen-mobile">
+                            <div class="tp-banner rev_slider" data-version="5.0">
+
+                                <ul>
+                                    <!-- SLIDE #1 -->
+                                    <li data-transition="fade">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="class/img/006.jpg" alt="">
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption customin customout"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-hoffset=""
+                                             data-voffset="-30"
+                                             data-start="1500"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.1"
+                                             data-endelementdelay="0.1"
+                                             data-endspeed="600">
+                                            <h3 class="c-main-title c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                                Meet JANGO<br>
+                                                The Ever Growing HTML5 Theme
+                                            </h3>
+                                        </div>
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption randomrotateout"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-hoffset=""
+                                             data-voffset="120"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-start="2000"
+                                             data-easing="Back.easeOut">
+                                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Explore</a>
+                                        </div>
+                                    </li>
+                                    <!-- END SLIDE #1 -->
+                                    <!-- SLIDE #2 -->
+                                    <li data-transition="fade">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="../../assets/base/img/content/backgrounds/bg-18.jpg" alt="">
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption customin customout"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-hoffset=""
+                                             data-voffset="-30"
+                                             data-start="1500"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Back.easeOut;"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.1"
+                                             data-endelementdelay="0.1"
+                                             data-endspeed="600">
+                                            <h3 class="c-main-title c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                                One JANGO<br>
+                                                For every need
+                                            </h3>
+                                        </div>
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption randomrotateout"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-hoffset=""
+                                             data-voffset="120"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Back.easeOut;"
+                                             data-start="2000"
+                                             data-easing="Back.easeOut">
+                                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Explore</a>
+                                        </div>
+                                    </li>
+                                    <!-- END SLIDE #2 -->
+                                    <!-- SLIDE #3 - VIDEO SLIDER -->
+                                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="6000" data-thumb="">
+                                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
+                                        <img src="../../assets/base/img/layout/sliders/revo-slider/base/blank.png" alt="">
+                                        <!-- BACKGROUND VIDEO LAYER -->
+                                        <div class="rs-background-video-layer fulllscreenvideo tp-videolayer"
+                                             data-forcerewind="on"
+                                             data-volume="mute"
+                                             data-videowidth="100%"
+                                             data-videoheight="100%"
+                                             data-videomp4="../../assets/base/media/video/video-2.mp4"
+                                             data-videopreload="preload"
+                                             data-videoloop="loop"
+                                             data-forceCover="1"
+                                             data-aspectratio="16:9"
+                                             data-autoplay="true"
+                                             data-autoplayonlyfirsttime="false"
+                                             data-nextslideatend="true"></div>
+
+                                        <!-- LAYER NR. 1 -->
+                                        <div class="tp-caption customin customout"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-hoffset=""
+                                             data-voffset="-30"
+                                             data-start="1000"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-splitin="none"
+                                             data-splitout="none"
+                                             data-elementdelay="0.1"
+                                             data-endelementdelay="0.1"
+                                             data-endspeed="600">
+                                            <h3 class="c-main-title c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
+                                                Design that speaks<br>to modern trends
+                                            </h3>
+                                        </div>
+
+                                        <!-- LAYER NR. 2 -->
+                                        <div class="tp-caption lf"
+                                             data-x="center"
+                                             data-y="center"
+                                             data-voffset="130"
+                                             data-speed="900"
+                                             data-start="2000"
+                                             data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;">
+                                            <a href="http://themeforest.net/item/jango-responsive-multipurpose-html5-template/11987314" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Purchase</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div><!-- END REVOLUTION SLIDER -->
+                        </div><!-- END OF SLIDER WRAPPER -->
+                    </section><!-- END: LAYOUT/SLIDERS/REVO-SLIDER-1 -->
+                </div>
 
                 <section id="about">
                     <!-- BEGIN: CONTENT/FEATURES/FEATURES-6 -->
@@ -445,6 +591,13 @@
     <script src="class/plugins/home/revelar-animate/reveal-animate.js" type="text/javascript"></script>
     <!-- END: CORE PLUGINS -->
     <!-- BEGIN: LAYOUT PLUGINS -->
+    <script src="class/plugins/home/revo/js/jquery.themepunch.tools.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/jquery.themepunch.revolution.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/revolution.extension.slideanims.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/revolution.extension.layeranimation.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/revolution.extension.navigation.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/revolution.extension.video.min.js" type="text/javascript"></script>
+    <script src="class/plugins/home/revo/js/revolution.extension.parallax.min.js" type="text/javascript"></script>
     <script src="class/plugins/home/cubeportfolio/js/jquery.cubeportfolio.min.js" type="text/javascript"></script>
     <script src="class/plugins/home/owl-carousel/owl.carousel.min.js" type="text/javascript"></script>
     <script src="class/plugins/home/counterup/jquery.waypoints.min.js" type="text/javascript"></script>
@@ -479,9 +632,69 @@
     <!-- BEGIN: SLIDER SCRIPTS -->
     <!-- END: SLIDER SCRIPTS -->
     <!-- BEGIN: PAGE SCRIPTS -->
-    <script>
+  <!-- BEGIN: PAGE SCRIPTS -->
+								<script>
+			$(document).ready(function() {
+	var slider = $('.c-layout-revo-slider .tp-banner');
 
-    </script>
+	var cont = $('.c-layout-revo-slider .tp-banner-container');
+
+	var api = slider.show().revolution({
+		sliderType:"standard",
+		sliderLayout:"fullscreen",
+		dottedOverlay:"none",
+		delay:15000,
+		navigation: {
+			keyboardNavigation:"off",
+			keyboard_direction: "horizontal",
+			mouseScrollNavigation:"off",
+			onHoverStop:"off",
+			arrows: {
+				style:"circle",
+				enable:true,
+				hide_onmobile:false,
+				hide_onleave:false,
+				tmp:'',
+				left: {
+					h_align:"left",
+					v_align:"center",
+					h_offset:30,
+					v_offset:0
+				},
+				right: {
+					h_align:"right",
+					v_align:"center",
+					h_offset:30,
+					v_offset:0
+				}
+			}			
+		},
+		responsiveLevels:[2048,1024,778,480],
+		gridwidth: [1240, 1024, 778, 480],
+		gridheight: [868, 768, 960, 720],
+		lazyType:"none",
+		shadow:0,
+		spinner:"spinner2",
+		stopLoop:"on",
+		stopAfterLoops:0,
+		stopAtSlide:1,
+		shuffle:"off",
+		autoHeight:"off",
+		disableProgressBar:"on",
+		hideThumbsOnMobile:"off",
+		hideSliderAtLimit:0,
+		hideCaptionAtLimit:0,
+		hideAllCaptionAtLilmit:0,
+		debugMode:false,
+		fallbacks: {
+			simplifyAll:"off",
+			nextSlideOnWindowFocus:"off",
+			disableFocusListener:false,
+		}
+	});
+}); //ready	
+			</script>
+							<!-- END: PAGE SCRIPTS -->
     <!-- END: PAGE SCRIPTS -->
     <!-- END: LAYOUT/BASE/BOTTOM -->
 

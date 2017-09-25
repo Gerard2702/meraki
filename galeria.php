@@ -3,9 +3,9 @@
 include("App/config/database.php");
 $conn = new Conexion();
 $conn->conectar();
-//$query="SELECT * FROM users WHERE email='$usuario' AND pass='$contrasena'";
-//$resp=$conn->query($query);
-//$conn->desconectar();
+$query="SELECT * FROM galeria";
+$resp=$conn->query($query);
+$conn->desconectar();
 session_start();
 ?>
 <!DOCTYPE html>
@@ -48,7 +48,7 @@ session_start();
 
 </head>
 
-<body id="body" class="c-layout-header-fixed c-layout-header-mobile-fixed c-layout-header-fullscreen">
+<body id="body" class="c-layout-header-fixed c-layout-header-mobile-fixed">
     <div class="wrapper">
         <div id="loader-wrapper">
             <div id="loader">
@@ -61,7 +61,7 @@ session_start();
             <div class="wrapper preload">
                 <!-- BEGIN: LAYOUT/HEADERS/HEADER-ONEPAGE -->
                 <!-- BEGIN: HEADER -->
-                <header class="c-layout-header c-layout-header-2 c-layout-header-dark-mobile c-header-transparent-dark" id="home" data-minimize-offset="40">
+                <header class="c-layout-header c-layout-header-3 c-layout-header-dark-mobile" id="home" data-minimize-offset="40">
                     <div class="c-navbar">
                         <div class="container">
                             <!-- BEGIN: BRAND -->
@@ -82,51 +82,10 @@ session_start();
                                     </button>
                                 </div>
                                 <!-- END: BRAND -->
-                                <!-- BEGIN: QUICK SEARCH -->
-                                <form class="c-quick-search" action="#">
-                                    <input type="text" name="query" placeholder="Type to search..." value="" class="form-control" autocomplete="off">
-                                    <span class="c-theme-link">&times;</span>
-                                </form>
-                                <!-- END: QUICK SEARCH -->
                                 <!-- BEGIN: HOR NAV -->
                                 <!-- BEGIN: LAYOUT/HEADERS/MEGA-MENU-ONEPAGE -->
                                 <!-- BEGIN: MEGA MENU -->
-                                <nav class="c-mega-menu c-mega-menu-onepage c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold" data-onepage-animation-speed="700">
-                                    <ul class="nav navbar-nav c-theme-nav">
-                                        <li class="c-onepage-link c-active active">
-                                            <a href="#home" class="c-link">Inicio</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#about" class="c-link">Quienes Somos</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#patrocinadores" class="c-link">Patrocinadores</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#services" class="c-link">Revista</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#team" class="c-link">Blog</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="galeria.php" class="c-link">Galeria</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#works" class="c-link">Cupones</a>
-                                        </li>
-                                        <li class="c-onepage-link ">
-                                            <a href="#contact" class="c-link">Contacto</a>
-                                        </li>
-                                        <li class="c-quick-sidebar-toggler-wrapper">    
-                                            <a href="#" class="c-quick-sidebar-toggler">                    
-                                                <span class="c-line"></span>
-                                                <span class="c-line"></span>
-                                                <span class="c-line"></span>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                </nav>
-
+                                <?php  include("menu.php") ?>
                                 <!-- END: MEGA MENU -->
                                 <!-- END: LAYOUT/HEADERS/MEGA-MENU-ONEPAGE -->
                                 <!-- END: HOR NAV -->
@@ -137,31 +96,9 @@ session_start();
                 <!-- END: HEADER -->
                 <!-- END: LAYOUT/HEADERS/HEADER-ONEPAGE -->
                 <!-- BEGIN: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
-                <nav class="c-layout-quick-sidebar">
-                    <div class="c-header">
-                        <button type="button" class="c-link c-close">
-                        <i class="icon-login"></i>      
-                        </button>
-                    </div>
-                    <div class="c-content">
-                        <div class="c-section">
-                            <h3>GALERIA</h3>
-                            <div class="c-settings">                
-                              <a href="#" class="btn btn-xs c-btn-white c-btn-border-1x">Agregar</a>
-                              <a href="#" class="btn btn-xs c-btn-white c-btn-border-1x">Administrar</a>
-                            </div>
-                        </div>      
-                        <div class="c-section">
-                            <h3>Header Mode</h3>
-                            <div class="c-settings">            
-                                <input type="button" class="c-setting_header-mode btn btn-sm c-btn-square c-btn-border-1x c-btn-white c-btn-sbold c-btn-uppercase active" data-value="fixed" value="fixed"/>
-                                <input type="button" class="c-setting_header-mode btn btn-sm c-btn-square c-btn-border-1x c-btn-white c-btn-sbold c-btn-uppercase" data-value="static" value="static"/>
-                            </div>
-                        </div>
-                    </div>
-                </nav><!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
-                <!-- BEGIN: PAGE CONTENT -->
-                <br><br><br><br><br>
+                <?php  include("menuadmin.php") ?>
+                <!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
+            <div class="c-layout-page">
                 <!-- BEGIN: PAGE CONTENT -->
                 <div class="c-content-box c-size-md">
                     <div class="container">
@@ -170,100 +107,59 @@ session_start();
                                 <div data-filter="*" class="cbp-filter-item-active cbp-filter-item">
                                     Todas <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".identity" class="cbp-filter-item">
+                                <div data-filter=".lugares_turisticos" class="cbp-filter-item">
                                     lugares turisticos <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".web-design" class="cbp-filter-item">
+                                <div data-filter=".emprendedurismo" class="cbp-filter-item">
                                     Emprenderurismo <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".graphic" class="cbp-filter-item">
+                                <div data-filter=".entrevistas" class="cbp-filter-item">
                                     Entrevistas a empresarios <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".logos" class="cbp-filter-item">
+                                <div data-filter=".tecnologia" class="cbp-filter-item">
                                     Tecnologia <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".logos, .graphic" class="cbp-filter-item">
+                                <div data-filter=".innovacion" class="cbp-filter-item">
                                     innovacion <div class="cbp-filter-counter"></div>
                                 </div>
-                                <div data-filter=".logos, .graphic" class="cbp-filter-item">
+                                <div data-filter=".restaurantes" class="cbp-filter-item">
                                     Restaurantes <div class="cbp-filter-counter"></div>
                                 </div>
                             </div>
                             <div id="grid-container" class="cbp cbp-l-grid-masonry-projects">
-                                <div class="cbp-item graphic">
-                                    <div class="cbp-caption">
+                            <?php if(mysqli_num_rows($resp)>0){
+                                while($imagen = mysqli_fetch_array($resp,MYSQLI_ASSOC)){ ?>
+                                <div class="cbp-item <?php echo $imagen['categoria'];?>">
+                                    <a href="class/img/galeria/<?php echo $imagen['imagen'];?>" class="cbp-caption cbp-lightbox" data-title="<?php echo $imagen['titulo'];?>">
                                         <div class="cbp-caption-defaultWrap">
-                                            <img src="class/img/home2.jpg" alt="">
-                                        </div>
-                                        <div class="cbp-caption-activeWrap">
-                                            <div class="c-masonry-border"></div>
-                                            <div class="cbp-l-caption-alignCenter">
-                                                <div class="cbp-l-caption-body">
-                                                    <a href="class/img/home2.jpg" class="cbp-lightbox cbp-l-caption-buttonRight btn c-btn-square c-btn-border-1x c-btn-white c-btn-bold c-btn-uppercase" data-title="Dashboard<br>by Paul Flavius Nechita">Zoom</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                  
-                                </div>
-                                <div class="cbp-item web-design logos">
-                                    <a href="class/img/home4.jpg" class="cbp-caption cbp-lightbox" data-title="The Gang Blue<br>by Cosmin Capitanu">
-                                        <div class="cbp-caption-defaultWrap">
-                                            <img src="class/img/home4.jpg" alt="">
+                                            <img src="class/img/galeria/<?php echo $imagen['imagen'];?>" alt="">
                                         </div>
                                         <div class="cbp-caption-activeWrap">
                                             <div class="cbp-l-caption-alignCenter">
                                                 <div class="cbp-l-caption-body">
-                                                    <div class="cbp-l-caption-title">The Gang Blue</div>
-                                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
+                                                    <div class="cbp-l-caption-title"><?php echo $imagen['titulo']?></div>
+                                                    <div class="cbp-l-caption-desc"><?php echo $imagen['descripcion']?></div>
                                                 </div>
                                             </div>
                                         </div>
                                     </a>
                                 </div>
-                                <div class="cbp-item web-design logos">
-                                    <a href="class/img/home5.jpg" class="cbp-caption cbp-lightbox" data-title="The Gang Blue<br>by Cosmin Capitanu">
-                                        <div class="cbp-caption-defaultWrap">
-                                            <img src="class/img/home5.jpg" alt="">
-                                        </div>
-                                        <div class="cbp-caption-activeWrap">
-                                            <div class="cbp-l-caption-alignCenter">
-                                                <div class="cbp-l-caption-body">
-                                                    <div class="cbp-l-caption-title">The Gang Blue</div>
-                                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="cbp-item web-design logos">
-                                    <a href="class/img/home10.jpg" class="cbp-caption cbp-lightbox" data-title="The Gang Blue<br>by Cosmin Capitanu">
-                                        <div class="cbp-caption-defaultWrap">
-                                            <img src="class/img/home10.jpg" alt="">
-                                        </div>
-                                        <div class="cbp-caption-activeWrap">
-                                            <div class="cbp-l-caption-alignCenter">
-                                                <div class="cbp-l-caption-body">
-                                                    <div class="cbp-l-caption-title">The Gang Blue</div>
-                                                    <div class="cbp-l-caption-desc">by Cosmin Capitanu</div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                            <?php }} else{ ?>
+                            <?php } ?>    
                             </div>
 
-                            <div id="loadMore-container" class="cbp-l-loadMore-button c-margin-t-60">
+                           <!-- <div id="loadMore-container" class="cbp-l-loadMore-button c-margin-t-60">
                                 <a href="" class="cbp-l-loadMore-link btn c-btn-square c-btn-border-2x c-btn-dark c-btn-bold c-btn-uppercase">
                                     <span class="cbp-l-loadMore-defaultText">LOAD MORE</span>
                                     <span class="cbp-l-loadMore-loadingText">LOADING...</span>
                                     <span class="cbp-l-loadMore-noMoreLoading">NO MORE WORKS</span>
                                 </a>
-                            </div>
+                            </div>-->
                         </div>
                     </div>
                 </div>
                 <!-- END: PAGE CONTENT -->
+                </div>
 
                 
                 <!-- BEGIN: LAYOUT/FOOTERS/FOOTER-2 -->

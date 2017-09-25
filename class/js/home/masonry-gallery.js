@@ -8,13 +8,13 @@
         loadMoreAction: 'click',
         layoutMode: 'grid',
         defaultFilter: '*',
-        animationType: 'quicksand',
+        animationType: 'sequentially',
         gapHorizontal: 35,
         gapVertical: 25,
         gridAdjustment: 'responsive',
         mediaQueries: [{
             width: 1100,
-            cols: 4
+            cols: 5
         }, {
             width: 800,
             cols: 3
@@ -25,7 +25,7 @@
             width: 320,
             cols: 1
         }],
-        caption: 'overlayBottom',
+        caption: 'fadeIn',
         displayType: 'lazyLoading',
         displayTypeSpeed: 100,
 

@@ -39,12 +39,15 @@
 	   exit();
 	} 
 	else{
+		$_SESSION['id_tipo'] = '2';
+        $_SESSION['nombre'] = $usuario;
+		$_SESSION['email'] = $email;
 		$conn->conectar();
 		$query="INSERT INTO users (id_tipo,nombre,email) VALUES ('2','".$usuario."','".$email."')";
 		$resp=$conn->insert_delete_update($query);
 		$last_id = $conn->lastid();
-		$query="INSERT INTO users (id_tipo,nombre,email) VALUES ('2','".$usuario."','".$email."')";
-		$resp=$conn->insert_delete_update($query);
+		//$query="INSERT INTO users (id_tipo,nombre,email) VALUES ('2','".$usuario."','".$email."')";
+		//$resp=$conn->insert_delete_update($query);
 		$query3="INSERT INTO users_social (id_user,social_id,service) VALUES ('".$last_id."','".$id."','".$service."')";
 		$resp3=$conn->insert_delete_update($query3);
 		$conn->desconectar();

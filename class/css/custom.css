@@ -323,3 +323,14 @@ margin:auto;
 .g-recaptcha {
         display: inline-block !important;
     }
+
+.texto img {
+  display: block !important;
+  max-width: 100% !important;
+  height: auto !important;
+}
+
+.texto iframe{
+    width: 100%;
+    height: 420 !important;
+}
