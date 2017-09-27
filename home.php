@@ -134,12 +134,11 @@
                     <section class="c-layout-revo-slider c-layout-revo-slider-1" dir="ltr">
                         <div class="tp-banner-container tp-fullscreen tp-fullscreen-mobile">
                             <div class="tp-banner rev_slider" data-version="5.0">
-
                                 <ul>
                                     <!-- SLIDE #1 -->
                                     <li data-transition="fade">
                                         <!-- MAIN IMAGE -->
-                                        <img src="class/img/006.jpg" alt="">
+                                        <img src="class/img/004.jpg" alt="">
                                         <!-- LAYER NR. 1 -->
                                         <div class="tp-caption customin customout"
                                              data-x="center"
@@ -176,7 +175,7 @@
                                     <!-- SLIDE #2 -->
                                     <li data-transition="fade">
                                         <!-- MAIN IMAGE -->
-                                        <img src="../../assets/base/img/content/backgrounds/bg-18.jpg" alt="">
+                                        <img src="class/img/006.jpg" alt="">
                                         <!-- LAYER NR. 1 -->
                                         <div class="tp-caption customin customout"
                                              data-x="center"
@@ -211,55 +210,43 @@
                                     </li>
                                     <!-- END SLIDE #2 -->
                                     <!-- SLIDE #3 - VIDEO SLIDER -->
-                                    <li data-transition="fade" data-slotamount="8" data-masterspeed="700" data-delay="6000" data-thumb="">
-                                        <!-- THE MAIN IMAGE IN THE FIRST SLIDE -->
-                                        <img src="../../assets/base/img/layout/sliders/revo-slider/base/blank.png" alt="">
-                                        <!-- BACKGROUND VIDEO LAYER -->
-                                        <div class="rs-background-video-layer fulllscreenvideo tp-videolayer"
-                                             data-forcerewind="on"
-                                             data-volume="mute"
-                                             data-videowidth="100%"
-                                             data-videoheight="100%"
-                                             data-videomp4="../../assets/base/media/video/video-2.mp4"
-                                             data-videopreload="preload"
-                                             data-videoloop="loop"
-                                             data-forceCover="1"
-                                             data-aspectratio="16:9"
-                                             data-autoplay="true"
-                                             data-autoplayonlyfirsttime="false"
-                                             data-nextslideatend="true"></div>
-
+                                   <!-- SLIDE #2 -->
+                                    <li data-transition="fade">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="class/img/010.jpg" alt="">
                                         <!-- LAYER NR. 1 -->
                                         <div class="tp-caption customin customout"
                                              data-x="center"
                                              data-y="center"
                                              data-hoffset=""
                                              data-voffset="-30"
-                                             data-start="1000"
+                                             data-start="1500"
                                              data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
-                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Back.easeOut;"
                                              data-splitin="none"
                                              data-splitout="none"
                                              data-elementdelay="0.1"
                                              data-endelementdelay="0.1"
                                              data-endspeed="600">
                                             <h3 class="c-main-title c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
-                                                Design that speaks<br>to modern trends
+                                                Lorem ipsum dolor sit amet.<br>
+                                                For every need
                                             </h3>
                                         </div>
-
                                         <!-- LAYER NR. 2 -->
-                                        <div class="tp-caption lf"
+                                        <div class="tp-caption randomrotateout"
                                              data-x="center"
                                              data-y="center"
-                                             data-voffset="130"
-                                             data-speed="900"
-                                             data-start="2000"
+                                             data-hoffset=""
+                                             data-voffset="120"
                                              data-transform_in="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
-                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;">
-                                            <a href="http://themeforest.net/item/jango-responsive-multipurpose-html5-template/11987314" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Purchase</a>
+                                             data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Back.easeOut;"
+                                             data-start="2000"
+                                             data-easing="Back.easeOut">
+                                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Explore More</a>
                                         </div>
                                     </li>
+                                    <!-- END SLIDE #2 -->
                                 </ul>
                             </div><!-- END REVOLUTION SLIDER -->
                         </div><!-- END OF SLIDER WRAPPER -->

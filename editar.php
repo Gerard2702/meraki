@@ -7,36 +7,74 @@ $conn = new Conexion();
 //$resp=$conn->query($query);
 //$conn->desconectar();
 $conn -> conectar();
+$conn->query("SET NAMES 'utf8'");
 $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
+$conn->desconectar();
 session_start();
 
+if(isset($_GET['post'])){
+    $conn->conectar();
+    $conn->query("SET NAMES 'utf8'");
+    $sqleditar = "SELECT * FROM entradas WHERE id='".$_GET['post']."'";
+    $rseditar = $conn->query($sqleditar);
+    $num = mysqli_num_rows($rseditar);
+    if($num > 0){
+        $entrada = $rseditar->fetch_assoc();
+    }
+    $conn->desconectar();
+}
+
 if(isset($_POST['crear'])){
-
-    $target_path = "class/img/blog/";
-    $target_path = $target_path . basename( $_FILES['inputImage']['name']);
-    if(move_uploaded_file($_FILES['inputImage']['tmp_name'], $target_path)) {
-       $conn->conectar();
-       $img2 = $_FILES['inputImage']['name'];
-       $titulo = $_POST['titulo'];
-       $descripcion = $_POST['descripcion'];
-       $fecha_actual = date("Y-m-d");
-       $editor = $_POST['editor1'];
-       $id_categoria = $_POST['categorias'];
-
-       $sqlentrada = "INSERT INTO entradas(titulo,descripcion,texto,img,categoria) VALUES ('".$titulo."','".$descripcion."','".$editor."','".$img2."','".$id_categoria."')";
-       $rsentrada = $conn->insert_delete_update($sqlentrada);
-       $conn->desconectar();
-       if($rsentrada==1){
-            header("Location:addentrada.php?reg=1");
-       }
-       else{
-            header("Location:addentrada.php?error=1");
-       }
-    } else{
+    //echo $_FILES['img']['name'];
+    if($_FILES['inputImage']['name']==""){
+           $conn->conectar();
+           $conn->query("SET NAMES 'utf8'");
+           //$img2 = $_FILES['img']['name'];
+           //$autor = $_SESSION['usuario'];
+           $titulo = $_POST['titulo'];
+           $intro = $_POST['descripcion'];
+           $texto = $_POST['editor1'];
+           $id_categoria = $_POST['categorias'];
+           $id = $_POST['id'];
+           $sql = "UPDATE entradas SET titulo='".$titulo."', descripcion='".$intro."', texto='".$texto."', categoria='".$id_categoria."' WHERE id='".$id."'";
+           //$sql = "INSERT INTO entradas(img,autor,titulo,intro,texto,id_categoria) VALUES ('".$img2."','".$autor."','".$titulo."','".$intro."','".$texto."','".$id_categoria."');";
+            $rs = $conn->insert_delete_update($sql);
+            $sql = "SELECT * FROM entradas WHERE id='".$id."'";
+            $rs = $conn->query($sql);
+            $num = mysqli_num_rows($rs);
+            if($num > 0){
+                $entrada = $rs->fetch_assoc();
+            }
+            $conn->desconectar();
+    }
+    else{
+        $target_path = "class/img/blog/";
+        $target_path = $target_path . basename( $_FILES['inputImage']['name']); 
+        if(move_uploaded_file($_FILES['inputImage']['tmp_name'], $target_path)) { 
+           $conn->conectar();
+           $conn->query("SET NAMES 'utf8'");
+           $img2 = $_FILES['inputImage']['name'];
+           $titulo = $_POST['titulo'];
+           $intro = $_POST['descripcion'];
+           $texto = $_POST['editor1'];
+           $id_categoria = $_POST['categorias'];
+           $id = $_POST['id'];
+           $sql = "UPDATE entradas SET  img='".$img2."', titulo='".$titulo."', descripcion='".$intro."', texto='".$texto."', categoria='".$id_categoria."' WHERE id='".$id."'";
+           //$sql = "INSERT INTO entradas(img,autor,titulo,intro,texto,id_categoria) VALUES ('".$img2."','".$autor."','".$titulo."','".$intro."','".$texto."','".$id_categoria."');";
+            $rs = $conn->insert_delete_update($sql);
+            $sql = "SELECT * FROM entradas WHERE id='".$id."'";
+            $rs = $conn->query($sql);
+            $num = mysqli_num_rows($rs);
+            if($num > 0){
+                $entrada = $rs->fetch_assoc();
+            }
+            $conn->desconectar();
+        } else{
 
         echo "Ha ocurrido un error, trate de nuevo!";
-    }
+        }      
+    }     
 }
 ?>
 <!DOCTYPE html>
@@ -142,32 +180,33 @@ if(isset($_POST['crear'])){
                                         <div class="form-group m-b-20 alert alert-danger" style="display: none" id="error">
                                             <p class="">Error al publicar entrada!.</p>
                                         </div>
-                                        <form class="form-horizontal" action="addentrada.php" method="POST" enctype="multipart/form-data">
+                                        <form class="form-horizontal" action="" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">Titulo</label>
                                                 <div class="col-md-8">
-                                                    <input class="form-control  c-square c-theme" name="titulo" placeholder="Titulo" type="text" required="" autocomplete="off">
+                                                    <input class="form-control  c-square c-theme" name="titulo" placeholder="Titulo" type="text" required="" autocomplete="off" value="<?php echo $entrada['titulo'];?>">
+                                                    <input type="text" hidden="" value="<?php echo $entrada['id'];?>" name="id" id="id">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label class="col-md-2 control-label">Descripción</label>
                                                 <div class="col-md-8">
-                                                    <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" value="" required="" autocomplete="off">
+                                                    <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" required="" autocomplete="off" value="<?php echo $entrada['descripcion'];?>">
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-12">
-                                                    <textarea class="ckeditor form-control" id="editor1" name="editor1" rows="15" required=""></textarea>
+                                                    <textarea class="ckeditor form-control" id="editor1" name="editor1" rows="15" required=""><?php echo $entrada['texto'];?></textarea>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <label for="exampleInputFile" class="col-md-2 control-label">Imagen Principal</label>
                                                 <div class="col-md-4">
-                                                    <input type="file" id="inputImage" name="inputImage" class="c-font-14" required="">
+                                                    <input type="file" id="inputImage" name="inputImage" class="c-font-14">
                                                     <p class="help-block">
                                                         JPG, GIF, PNG
                                                     </p>
-                                                    <img id="imagenEvento" src="#" alt="Imagen Previa" class="c-overlay-object img-responsive" height="150" width="150" />
+                                                    <img id="imagenEvento" src="class/img/blog/<?php echo $entrada['img']; ?>" alt="Imagen Previa" class="c-overlay-object img-responsive" height="150" width="150" />
                                                     <div class="form-group m-b-20 alert alert-danger" style="display: none" id="errorimg">
                                                     <p class="">Error!. Tipo de archivo no aceptado</p>
                                                 </div>
@@ -179,7 +218,7 @@ if(isset($_POST['crear'])){
                                                     ?>
                                                     <div class="radio">
                                                         <label>
-                                                            <input type="radio" required name="categorias" id="categorias" value="<?php echo $categorias['id'] ;?>"><?php echo $categorias['nombre'] ; ?>
+                                                            <input type="radio" required name="categorias" id="categorias" value="<?php echo $categorias['id'] ;?>" <?php if($entrada['categoria']==$categorias['id']){ ?> checked="checked" <?php } ?> ><?php echo $categorias['nombre'] ; ?>
                                                         </label>
                                                     </div>
                                                     <?php

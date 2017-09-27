@@ -8,6 +8,8 @@ if(isset($_GET['titulo'])){
     $sql = "SELECT * FROM entradas WHERE titulo='".$_GET['titulo']."'";
     $rs = $conn->query($sql);
 }
+$sqllimit = "SELECT * FROM entradas ORDER BY id DESC LIMIT 5";
+$rslimit = $conn->query($sqllimit);
 
 $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
@@ -115,15 +117,7 @@ session_start();
                 <!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
                 <!-- BEGIN: PAGE CONTAINER -->
                 <div class="c-layout-page">
-                <!-- BEGIN: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
-                <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url(class/img/home7.jpg)">
-                    <div class="container">
-                        <div class="c-page-title c-pull-center">
-                            <h1 class="c-font-uppercase c-font-bold c-font-white">Meraki Magazine BLOG</h1>
-                        </div>
-                    </div>
-                </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
-                    <?php
+                <?php
                        /* if ($paging->ejecutar()==true and $paging->numRegistrosMostrados() > 0){
     while($datos = $paging->fetchResultado()){
             echo "<div>". $datos["nombre"]." Email:" .$datos["email"]."</div><br />";
@@ -202,104 +196,30 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                                     <div class="c-content-tab-1 c-theme c-margin-t-30">
                                         <div class="nav-justified">
                                             <ul class="nav nav-tabs nav-justified">
-                                                <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Recent Posts</a></li>
-                                                <li><a href="#blog_popular_posts" data-toggle="tab">Popular Posts</a></li>
+                                                <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Entradas Recientes</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="blog_recent_posts">
                                                     <ul class="c-content-recent-posts-1">
+                                                    <?php 
+                                                        if(mysqli_num_rows($rslimit)>0){
+                                                            while($entradasrecientes = mysqli_fetch_array($rslimit,MYSQLI_ASSOC)){
+                                                    ?>
                                                         <li>
                                                             <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/09.jpg" alt="" class="img-responsive">
+                                                                <img src="class/img/blog/<?php echo $entradasrecientes['img'] ?>" alt="" class="img-responsive">
                                                             </div>
                                                             <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
+                                                                <a href="detalleentrada.php?titulo=<?php echo $entradasrecientes['titulo']; ?>" class="c-title">
+                                                                    <?php  echo $entradasrecientes['titulo']; ?>
                                                                 </a>
-                                                                <div class="c-date">27 Jan 2015</div>
+                                                                <div class="c-date"><?php  echo $entradasrecientes['fecha-creacion']; ?></div>
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/08.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/07.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/32.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="tab-pane" id="blog_popular_posts">
-                                                    <ul class="c-content-recent-posts-1">
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/34.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/37.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/32.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/54.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
+                                                    <?php 
+                                                            }
+                                                        }
+                                                    ?>  
                                                     </ul>
                                                 </div>
                                             </div>

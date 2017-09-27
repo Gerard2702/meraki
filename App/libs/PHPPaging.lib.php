@@ -232,7 +232,7 @@ class PHPPaging {
     *   </code>
     *   @var string
     **/
-    var $mostrarAnterior = "&lt; Anterior";
+    var $mostrarAnterior = "&lt;";
     
     /**
     *   Cadena que se mostrará en el link hacia la página SIGUIENTE
@@ -246,7 +246,7 @@ class PHPPaging {
     *   </code>
     *   @var string
     **/
-    var $mostrarSiguiente = "Siguiente &gt;";
+    var $mostrarSiguiente = "&gt;";
     
     /**
     *   Cadena que se mostrará en el link hacia las páginas accesibles en barra de links

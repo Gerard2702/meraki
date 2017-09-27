@@ -7,6 +7,9 @@ $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $datos = array();
 
+$sqllimit = "SELECT * FROM entradas ORDER BY id DESC LIMIT 5";
+$rslimit = $conn->query($sqllimit);
+
 if(isset($_GET['categoria'])){
     $categoria = $_GET['categoria'];
     $sql = "SELECT * FROM entradas WHERE categoria='".$categoria."'";
@@ -78,6 +81,13 @@ $paging->ejecutar();
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
 
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css">
+
+    <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js"></script>
+
 </head>
 
 <body id="body" class="c-layout-header-fixed c-layout-header-mobile-fixed">
@@ -148,17 +158,6 @@ $paging->ejecutar();
                     </div>
                 </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
 
-                    <?php
-                       /* if ($paging->ejecutar()==true and $paging->numRegistrosMostrados() > 0){
-    while($datos = $paging->fetchResultado()){
-            echo "<div>". $datos["nombre"]." Email:" .$datos["email"]."</div><br />";
-            echo "<div>Publicado el ". date("F j, Y, g:i a",$datos["pass"])."</div><br />";
- 
-        }
-}
-
-echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
-                    ?>
                     <!-- BEGIN: PAGE CONTENT -->
                     <!-- BEGIN: BLOG LISTING -->
                     <div class="c-content-box c-size-md">
@@ -172,15 +171,7 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                                             <div class="col-md-6">
                                                 <div class="c-content-blog-post-card-1 c-option-2 c-bordered">
                                                     <div class="c-media c-content-overlay">
-                                                        <div class="c-overlay-wrapper">
-                                                            <div class="c-overlay-content">
-                                                                <a href="detalleentrada.php?titulo=<?php echo $datos['titulo']; ?>"><i class="fa fa-link"></i></a>
-                                                                <a href="../../assets/base/img/content/stock2/04.jpg" data-lightbox="fancybox" data-fancybox-group="gallery">
-                                                                    <i class="fa fa-search-plus"></i>
-                                                                </a>
-                                                            </div>
-                                                        </div>
-                                                        <img class="c-overlay-object img-responsive" src="class/img/blog/<?php echo $datos['img'] ?>" alt="">
+                                                        <a href="detalleentrada.php?titulo=<?php echo $datos['titulo']; ?>"><img class="c-overlay-object img-responsive" src="class/img/blog/<?php echo $datos['img'] ?>" alt=""></a>
                                                     </div>
                                                     <div class="c-body">
                                                         <div class="c-title c-font-bold c-font-uppercase">
@@ -189,19 +180,27 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                                                         <div class="c-author">
                                                             <!--By <a href="#"><span class="c-font-uppercase">Nick Strong</span></a>-->
                                                             FECHA: <span class="c-font-uppercase"><?php echo $datos['fecha-creacion'] ?></span>
+                                                            
                                                         </div>
 
                                                         <div class="c-panel">
                                                             <ul class="c-tags c-theme-ul-bg">
-                                                                <li>ux</li>
-                                                                <li>web</li>
-                                                                <li>events</li>
+                                                            <?php
+                                                                $conn->conectar();   
+                                                                $sqlcat = "SELECT * FROM categorias WHERE id='".$datos['categoria']."'";
+                                                                $rscat=$conn->query($sqlcat);
+                                                                $cat=$rscat->fetch_assoc(); 
+                                                            ?>
+                                                                <li><a href="#"><?php echo $cat['nombre'];?></a></li>
                                                             </ul>
-                                                            <div class="c-comments"><a href="#"><i class="icon-speech"></i> 30 comments</a></div>
                                                         </div>
                                                         <p>
                                                             <?php echo $datos['descripcion'] ?>
                                                         </p>
+                                                        <div class="">
+                                                          <a href="editar.php?post=<?php echo $datos['id']?>" class="btn btn-info btn-xs" title="Editar"><i class="fa fa-cog"></i></a>
+                                                            <a class="btn btn-danger btn-xs" title="Eliminar" onclick="eliminar('<?php echo $datos['id']?>','<?php echo $datos['titulo']?>')"><i class="fa fa-times" ></i></a>  
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -248,104 +247,30 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                                     <div class="c-content-tab-1 c-theme c-margin-t-30">
                                         <div class="nav-justified">
                                             <ul class="nav nav-tabs nav-justified">
-                                                <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Recent Posts</a></li>
-                                                <li><a href="#blog_popular_posts" data-toggle="tab">Popular Posts</a></li>
+                                                <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Entradas Recientes</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="blog_recent_posts">
                                                     <ul class="c-content-recent-posts-1">
+                                                    <?php 
+                                                        if(mysqli_num_rows($rslimit)>0){
+                                                            while($entradasrecientes = mysqli_fetch_array($rslimit,MYSQLI_ASSOC)){
+                                                    ?>
                                                         <li>
                                                             <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/09.jpg" alt="" class="img-responsive">
+                                                                <img src="class/img/blog/<?php echo $entradasrecientes['img'] ?>" alt="" class="img-responsive">
                                                             </div>
                                                             <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
+                                                                <a href="detalleentrada.php?titulo=<?php echo $entradasrecientes['titulo']; ?>" class="c-title">
+                                                                    <?php  echo $entradasrecientes['titulo']; ?>
                                                                 </a>
-                                                                <div class="c-date">27 Jan 2015</div>
+                                                                <div class="c-date"><?php  echo $entradasrecientes['fecha-creacion']; ?></div>
                                                             </div>
                                                         </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/08.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/07.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/32.jpg" alt="" class="img-responsive">
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                                <div class="tab-pane" id="blog_popular_posts">
-                                                    <ul class="c-content-recent-posts-1">
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/34.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/37.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/32.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
-                                                        <li>
-                                                            <div class="c-image">
-                                                                <img src="../../assets/base/img/content/stock/54.jpg" class="img-responsive" alt="" />
-                                                            </div>
-                                                            <div class="c-post">
-                                                                <a href="" class="c-title">
-                                                                    UX Design Expo 2015...
-                                                                </a>
-                                                                <div class="c-date">27 Jan 2015</div>
-                                                            </div>
-                                                        </li>
+                                                    <?php 
+                                                            }
+                                                        }
+                                                    ?>  
                                                     </ul>
                                                 </div>
                                             </div>
@@ -448,7 +373,54 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                 $('.wrapper').removeClass('preload');
             });
         });
-    </script>
+
+ function eliminar(id,nombre){
+            swal({
+              title: 'Quieres Eliminar La Entrada?\n'+nombre,
+              text: "No puedes revertir el proceso!",
+              type: 'warning',
+              showCancelButton: true,
+              confirmButtonColor: '#3085d6',
+              cancelButtonColor: '#d33',
+              confirmButtonText: 'Si, Eliminar!',
+              cancelButtonText: 'No, Cancelar!',
+              confirmButtonClass: 'btn btn-info',
+              cancelButtonClass: 'btn btn-danger',
+              buttonsStyling: false
+            }).then(function () {
+                $.ajax({
+                    type:"POST",
+                    url: "consultas.php",
+                    dataType:"text",
+                    data:{
+                        consulta:'eliminar',
+                        id:id
+                    }
+                }).done(function(data) {
+                    if(data=="true"){
+                        swal(
+                        'Eliminado!',
+                        'La entrada se ha eliminado.',
+                        'success'
+                      )
+                    window.location="blog.php";
+                    }
+                    if(data=="false"){
+                       swal(
+                      'Error!',
+                      'Ocurrio un error al eliminar la entrada.',
+                      'error'
+                    )  
+                    }
+                    
+                });
+
+            }, function (dismiss) {
+              if (dismiss === 'cancel') {
+                
+              }
+            })           
+        }    </script>
     <!-- END: THEME SCRIPTS -->
     <!-- BEGIN: SLIDER SCRIPTS -->
     <!-- END: SLIDER SCRIPTS -->

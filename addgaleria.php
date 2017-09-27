@@ -164,28 +164,32 @@ if(isset($_POST['subir'])){
                                 </div>
                                     <form class="form-horizontal" action="addgaleria.php" method="POST" enctype="multipart/form-data">
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">Titulo</label>
+                                            <label class="col-md-4 control-label">Titulo: </label>
                                             <div class="col-md-6">
                                                 <input class="form-control  c-square c-theme" name="titulo" placeholder="Titulo" type="text" required="" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">Descripción</label>
+                                            <label class="col-md-4 control-label">Descripción: </label>
                                             <div class="col-md-6">
                                                 <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" value="" autocomplete="off">
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputFile" class="col-md-4 control-label">Seleccione el archivo de imagen</label>
+                                            <label for="exampleInputFile" class="col-md-4 control-label">Seleccione el archivo de imagen: </label>
                                             <div class="col-md-6">
                                                 <input type="file" id="imagen" name="imagen" class="c-font-14" required="">
                                                 <p class="help-block">
                                                     JPG, GIF, PNG
                                                 </p>
+                                                <img id="imagenEvento" src="#" alt="Imagen Previa" class="c-overlay-object img-responsive" height="150" width="150" />
+                                                <div class="form-group m-b-20 alert alert-danger" style="display: none" id="errorimg">
+                                                    <p class="">Error!. Tipo de archivo no aceptado</p>
+                                                </div>
                                             </div>
                                         </div>      
                                         <div class="form-group">
-                                            <label class="col-md-4 control-label">Checkbox</label>
+                                            <label class="col-md-4 control-label">Categoria:</label>
                                             <div class="col-md-6">
                                                 <div class="checkbox">
                                                     <label>
@@ -299,6 +303,63 @@ if(isset($_POST['subir'])){
         $(document).ready(function () {
             App.init(); // init core
         });
+    </script>
+    <script>
+        //Regristro una funcion de jQuery para validar el tipo de dato que alguien sube
+            $.fn.checkFileType = function (options) {
+                var defaults = {
+                    allowedExtensions: [],
+                    success: function (data) { },
+                    error: function () { }
+                };
+                options = $.extend(defaults, options);
+
+                return this.each(function () {
+
+                    $(this).on('change', function () {
+                        var value = $(this).val(),
+                            file = value.toLowerCase(),
+                            extension = file.substring(file.lastIndexOf('.') + 1);
+
+                        if ($.inArray(extension, options.allowedExtensions) == -1) {
+                            options.error();
+                            $(this).focus();
+                        } else {
+                            options.success($(this));
+
+                        }
+
+                    });
+
+                });
+            };
+
+ //Registra el cambio cuando alguien sube un archivo
+            $('#imagen').checkFileType({
+                allowedExtensions: ['jpg', 'png', 'jpeg'],
+                success: function (data) {
+                    leerArchivo(data[0], "#imagenEvento");
+                    $('#errorimg').hide();
+                },
+                error: function () {
+                    $('#errorimg').show();
+
+                }
+            });
+
+
+ //Para el input que tiene el archivo, lee la imagen y la renderiza en el selector que quiero
+            function leerArchivo(input, selectorRender) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+
+                    reader.onload = function (e) {
+                        $(selectorRender).attr('src', e.target.result);
+                    }
+
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
     </script>
     <script src="class/js/home/masonry-gallery.js" type="text/javascript"></script>
     <?php if(isset($_GET['reg'])){
