@@ -92,7 +92,7 @@
                                             <a href="#about" class="c-link">Quienes Somos</a>
                                         </li>
                                         <li class="c-onepage-link ">
-                                            <a href="#servicios" class="c-link">Servicios</a>
+                                            <a href="#Contenidos" class="c-link">Contenidos</a>
                                         </li>
                                         <li class="c-onepage-link ">
                                             <a href="#patrocinadores" class="c-link">Patrocinadores</a>
@@ -154,8 +154,8 @@
                                              data-endelementdelay="0.1"
                                              data-endspeed="600">
                                             <h3 class="c-main-title c-font-55 c-font-bold c-font-center c-font-uppercase c-font-white c-block">
-                                                Meet JANGO<br>
-                                                The Ever Growing HTML5 Theme
+                                                Somos la expresion<br>
+                                                verbal de tu pensamiento critico y liberal!
                                             </h3>
                                         </div>
                                         <!-- LAYER NR. 2 -->
@@ -168,7 +168,7 @@
                                              data-transform_out="x:0;y:0;z:0;rX:0.5;rY:0;rZ:0;sX:0.75;sY:0.75;skX:0;skY:0;opacity:0;s:600;e:Power2.easeInOut;"
                                              data-start="2000"
                                              data-easing="Back.easeOut">
-                                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">Explore</a>
+                                            <a href="#" class="c-action-btn btn btn-lg c-btn-square c-btn-border-2x c-btn-white c-btn-bold c-btn-uppercase">conocenos</a>
                                         </div>
                                     </li>
                                     <!-- END SLIDE #1 -->
@@ -336,14 +336,14 @@
                     <!-- END: CONTENT/FEATURES/FEATURES-6 -->
                 </section>
 
-                <section id="servicios">
+                <section id="Contenidos">
                     <!-- BEGIN: CONTENT/FEATURES/FEATURES-10 -->
                     <div class="c-content-box c-size-md c-bg-parallax c-servicios" style="">
                         <div class="container">
                             <div class="c-content-feature-9">
                                 <!-- Begin: Title 1 component -->
                                 <div class="c-content-title-1">
-                                    <h3 class="c-font-uppercase c-center c-font-bold c-font-white">servicios</h3>
+                                    <h3 class="c-font-uppercase c-center c-font-bold c-font-white">Contenidos</h3>
                                     <div class="c-line-center c-theme-bg"></div>
                                     <p class="c-font-center c-text-white">Lorem ipsum dolor consetuer elit</p>
                                 </div>
@@ -353,7 +353,7 @@
                                         <div class="c-card">
                                             <i class="fa fa-check c-font-blue c-font-22 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Full Sass Support</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Turismo</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
@@ -364,7 +364,7 @@
                                         <div class="c-card">
                                             <i class="fa fa-check c-font-blue c-font-27 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Group Tasks</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Emprendedurismo</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
@@ -375,7 +375,7 @@
                                         <div class="c-card">
                                             <i class="fa fa-check c-font-blue c-font-27 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Reponsive UI</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Entrevistas</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
@@ -388,7 +388,7 @@
                                         <div class="c-card">
                                             <i class="fa fa-check c-font-blue c-font-22 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Easy Management</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Tecnologia</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
@@ -399,7 +399,7 @@
                                         <div class="c-card">
                                             <i class="fa fa-check c-font-blue c-font-27 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Quick Reports</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Innovacion</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
@@ -410,7 +410,7 @@
                                         <div class="c-card">
                                             <i class=" fa fa-check c-font-blue c-font-27 c-bg-blue-7 c-float-left"></i>
                                             <div class="c-content c-content-left">
-                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Great Support</h3>
+                                                <h3 class="c-font-white c-font-uppercase c-font-bold">Restaurantes</h3>
                                                 <p class="c-text-white">
                                                     Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
                                                 </p>
