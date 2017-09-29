@@ -30,24 +30,6 @@ INSERT INTO `categorias` (`id`, `nombre`) VALUES
 	(2, 'categoria2\r\n');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
--- Dumping structure for table miraki.comentarios
-CREATE TABLE IF NOT EXISTS `comentarios` (
-  `idcomentario` int(11) NOT NULL AUTO_INCREMENT,
-  `texto` varchar(50) DEFAULT NULL,
-  `iduser` int(11) DEFAULT NULL,
-  `identrada` int(11) DEFAULT NULL,
-  `date` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`idcomentario`),
-  KEY `FK_comentarios_users` (`iduser`),
-  KEY `FK_comentarios_entradas` (`identrada`),
-  CONSTRAINT `FK_comentarios_entradas` FOREIGN KEY (`identrada`) REFERENCES `entradas` (`id`),
-  CONSTRAINT `FK_comentarios_users` FOREIGN KEY (`iduser`) REFERENCES `users` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table miraki.comentarios: ~0 rows (approximately)
-/*!40000 ALTER TABLE `comentarios` DISABLE KEYS */;
-/*!40000 ALTER TABLE `comentarios` ENABLE KEYS */;
-
 -- Dumping structure for table miraki.entradas
 CREATE TABLE IF NOT EXISTS `entradas` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
