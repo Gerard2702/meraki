@@ -80,24 +80,6 @@ INSERT INTO `galeria` (`id`, `titulo`, `descripcion`, `imagen`, `categoria`) VAL
 	(9, 'Algo', 'Algo3', 'landscapes-dark-houses-bridges-fantasy-art-artwork-waterfalls-high-resolution.jpg', 'lugares_turisticos innovacion');
 /*!40000 ALTER TABLE `galeria` ENABLE KEYS */;
 
--- Dumping structure for table miraki.rescomentario
-CREATE TABLE IF NOT EXISTS `rescomentario` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `texto` varchar(1000) DEFAULT NULL,
-  `iduser` int(11) NOT NULL DEFAULT '0',
-  `idcomentario` int(11) NOT NULL DEFAULT '0',
-  `fecha` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  KEY `FK_rescomentario_comentarios` (`idcomentario`),
-  KEY `FK_rescomentario_users` (`iduser`),
-  CONSTRAINT `FK_rescomentario_comentarios` FOREIGN KEY (`idcomentario`) REFERENCES `comentarios` (`idcomentario`),
-  CONSTRAINT `FK_rescomentario_users` FOREIGN KEY (`iduser`) REFERENCES `users` (`id_user`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- Dumping data for table miraki.rescomentario: ~0 rows (approximately)
-/*!40000 ALTER TABLE `rescomentario` DISABLE KEYS */;
-/*!40000 ALTER TABLE `rescomentario` ENABLE KEYS */;
-
 -- Dumping structure for table miraki.tipo_user
 CREATE TABLE IF NOT EXISTS `tipo_user` (
   `id_tipo` int(11) NOT NULL AUTO_INCREMENT,
