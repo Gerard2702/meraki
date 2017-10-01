@@ -12,6 +12,12 @@
             </div>
         </div>
         <div class="c-section">
+            <h3>Revista</h3>
+            <div class="c-settings">            
+                <a href="addrevista.php" class="btn btn-xs c-btn-white c-btn-border-1x">Agregar Revista</a>
+            </div>
+        </div>
+        <div class="c-section">
             <h3>GALERIA</h3>
             <div class="c-settings">                
               <a href="addgaleria.php" class="btn btn-xs c-btn-white c-btn-border-1x">Agregar</a>

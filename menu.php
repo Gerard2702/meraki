@@ -13,7 +13,7 @@
             <a href="home.php#patrocinadores" class="c-link">Patrocinadores</a>
         </li>
         <li class="c-onepage-link ">
-            <a href="home.php#services" class="c-link">Revista</a>
+            <a href="revista.php" class="c-link">Revista</a>
         </li>
         <li class="c-onepage-link ">
             <a href="blog.php" class="c-link">Blog</a>
