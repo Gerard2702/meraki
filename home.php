@@ -363,7 +363,7 @@ En esta primera edición, tenemos una serie de artículos que han sido elaborado
                                 <div class="c-content-title-1">
                                     <h3 class="c-font-uppercase c-center c-font-bold c-font-white">Contenidos</h3>
                                     <div class="c-line-center c-theme-bg"></div>
-                                    <p class="c-font-center c-text-white">Lorem ipsum dolor consetuer elit</p>
+                                    <p class="c-font-center c-text-white">Conoce un poco sobre nuestra pasión</p>
                                 </div>
                                 <!-- End-->
                                 <ul class="c-list">
@@ -527,7 +527,7 @@ En esta primera edición, tenemos una serie de artículos que han sido elaborado
                                         <div class="c-content-title-1">
                                             <h3  class="c-font-uppercase c-font-bold">Contactenos</h3>
                                             <div class="c-line-left"></div>
-                                            <p class="c-font-lowercase">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque accusantium numquam deserunt in. Nostrum tenetur quas quibusdam repudiandae est atque fugiat, aperiam quia tempora repellat suscipit accusamus, aspernatur eos.</p>
+                                            <p class="c-font-lowercase">tu opinion es muy importantes para nosotros escribenos sera un placer saber de ti.</p>
                                         </div>
                                         <div class="col-md-6 col-md-offset-3 text-center">
                                         <form action="#">
@@ -560,7 +560,9 @@ En esta primera edición, tenemos una serie de artículos que han sido elaborado
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <p class="c-copyright c-font-oswald c-font-14">
-                                    Copyright &copy; SAES.
+                                    Copyright &copy; SAES , no se permite la reproducción de este contenido ni su transmisión en forma o medio alguno, sea electrónica, mecanico, fotocopia, registró o de cualquier otro tipo, sin el permiso previo y por escrito del editor.
+
+Los artículos son responsabilidad de sus autores y no representan la linea editorial de la revista.
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
