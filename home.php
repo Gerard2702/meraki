@@ -295,32 +295,32 @@
                                                     <div class="row">
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-1">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client1.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-2">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client2.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-3">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client3.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-4">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client4.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-5">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client5.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                         <div class="col-md-4 col-xs-6 c-logo c-logo-6">
                                                             <a href="#">
-                                                                <img class="c-img-pos" src="../../assets/base/img/content/client-logos/client6.jpg" alt="" />
+                                                                <img class="c-img-pos" src="" alt="" />
                                                             </a>
                                                         </div>
                                                     </div>

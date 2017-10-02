@@ -168,7 +168,7 @@ if(isset($_POST['crear'])){
                     <div class="c-content-box c-size-md c-bg-white">
                         <div class="container">
                             <div class="c-content-title-1">
-                                <h3 class="c-center c-font-uppercase c-font-bold">Agregar Entrada BLOG</h3>
+                                <h3 class="c-center c-font-uppercase c-font-bold">Editar Entrada</h3>
                                 <div class="c-line-center c-theme-bg"></div>
                             </div>
                             <div class="row">

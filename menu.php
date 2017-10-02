@@ -7,13 +7,13 @@
             <a href="home.php#about" class="c-link">Quienes Somos</a>
         </li>
         <li class="c-onepage-link ">
-            <a href="home.php#servicios" class="c-link">Servicios</a>
+            <a href="home.php#Contenidos" class="c-link">Contenidos</a>
         </li>
         <li class="c-onepage-link ">
             <a href="home.php#patrocinadores" class="c-link">Patrocinadores</a>
         </li>
         <li class="c-onepage-link ">
-            <a href="revista.php" class="c-link">Revista</a>
+            <a href="revista/contenidos/edicion1/index.html" target="_blank" class="c-link">Revista</a>
         </li>
         <li class="c-onepage-link ">
             <a href="blog.php" class="c-link">Blog</a>
