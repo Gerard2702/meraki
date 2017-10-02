@@ -1,3 +1,7 @@
+<?php
+session_start();
+    include("App/login/validarlogin.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

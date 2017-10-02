@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 //$conn->conectar();

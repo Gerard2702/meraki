@@ -1,12 +1,13 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 $conn->conectar();
 $query="SELECT * FROM galeria";
 $resp=$conn->query($query);
 $conn->desconectar();
-session_start();
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `categorias` (
 /*!40000 ALTER TABLE `categorias` DISABLE KEYS */;
 INSERT INTO `categorias` (`id`, `nombre`) VALUES
 	(1, 'ejemplo'),
-	(2, 'categoria2\r\n');
+	(2, 'categoria2');
 /*!40000 ALTER TABLE `categorias` ENABLE KEYS */;
 
 -- Dumping structure for table miraki.entradas
@@ -79,6 +79,43 @@ INSERT INTO `galeria` (`id`, `titulo`, `descripcion`, `imagen`, `categoria`) VAL
 	(8, 'tecnogia', 'nueva imagen', 'tecnologiaC.jpg', ' tecnologia innovacion'),
 	(9, 'Algo', 'Algo3', 'landscapes-dark-houses-bridges-fantasy-art-artwork-waterfalls-high-resolution.jpg', 'lugares_turisticos innovacion');
 /*!40000 ALTER TABLE `galeria` ENABLE KEYS */;
+
+-- Dumping structure for table miraki.revista
+CREATE TABLE IF NOT EXISTS `revista` (
+  `idEdicion` int(11) NOT NULL AUTO_INCREMENT,
+  `titulo` varchar(50) DEFAULT NULL,
+  `descripcion` varchar(250) DEFAULT NULL,
+  `pag22` varchar(50) DEFAULT NULL,
+  `portada` varchar(50) DEFAULT NULL,
+  `pag1` varchar(50) DEFAULT NULL,
+  `pag2` varchar(50) DEFAULT NULL,
+  `pag3` varchar(50) DEFAULT NULL,
+  `pag4` varchar(50) DEFAULT NULL,
+  `pag5` varchar(50) DEFAULT NULL,
+  `pag6` varchar(50) DEFAULT NULL,
+  `pag7` varchar(50) DEFAULT NULL,
+  `pag8` varchar(50) DEFAULT NULL,
+  `pag9` varchar(50) DEFAULT NULL,
+  `pag10` varchar(50) DEFAULT NULL,
+  `pag11` varchar(50) DEFAULT NULL,
+  `pag12` varchar(50) DEFAULT NULL,
+  `pag13` varchar(50) DEFAULT NULL,
+  `pag14` varchar(50) DEFAULT NULL,
+  `pag15` varchar(50) DEFAULT NULL,
+  `pag16` varchar(50) DEFAULT NULL,
+  `pag17` varchar(50) DEFAULT NULL,
+  `pag18` varchar(50) DEFAULT NULL,
+  `pag19` varchar(50) DEFAULT NULL,
+  `pag20` varchar(50) DEFAULT NULL,
+  `pag21` varchar(50) DEFAULT NULL,
+  `contraportada` varchar(50) DEFAULT NULL,
+  `fechadecreacion` datetime DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`idEdicion`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- Dumping data for table miraki.revista: 0 rows
+/*!40000 ALTER TABLE `revista` DISABLE KEYS */;
+/*!40000 ALTER TABLE `revista` ENABLE KEYS */;
 
 -- Dumping structure for table miraki.tipo_user
 CREATE TABLE IF NOT EXISTS `tipo_user` (

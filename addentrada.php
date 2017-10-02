@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 //$conn->conectar();
@@ -9,7 +10,7 @@ $conn = new Conexion();
 $conn -> conectar();
 $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
-session_start();
+
 
 if(isset($_POST['crear'])){
 

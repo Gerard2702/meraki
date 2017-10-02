@@ -5,25 +5,35 @@ include("App/config/database.php");
 $id_tipo=$_SESSION['id_tipo'];
 $conn = new Conexion();
 $conn -> conectar();
-$sql = "SELECT * FROM entradas";
-$rs = $conn->query($sql);
+$sqlcategorias = "SELECT * FROM Categorias";
+$rscategorias = $conn->query($sqlcategorias);
+$datos = array();
 
 $sqllimit = "SELECT * FROM entradas ORDER BY id DESC LIMIT 5";
 $rslimit = $conn->query($sqllimit);
 
-$sqlcategorias = "SELECT * FROM Categorias";
-$rscategorias = $conn->query($sqlcategorias);
-$conn -> desconectar();
-$datos = array();
-if(mysqli_num_rows($rs)>0){
+if(isset($_GET['buscar'])){
+    $buscar = $_GET['buscar'];
+    $sql = "SELECT * FROM entradas WHERE titulo LIKE '%".$buscar."%' ";
+    $rs = $conn->query($sql);
+    if(mysqli_num_rows($rs)>0){
     while($entradas = mysqli_fetch_array($rs,MYSQLI_ASSOC)){
         $datos[] = $entradas;
     }
 }
-
+}
+else{
+    $sql = "SELECT * FROM entradas";
+    $rs = $conn->query($sql);
+    if(mysqli_num_rows($rs)>0){
+    while($entradas = mysqli_fetch_array($rs,MYSQLI_ASSOC)){
+        $datos[] = $entradas;
+        }
+    }
+}
+$conn -> desconectar();
 
 require_once('App/libs/PHPPaging.lib.php'); // Libreria para el Paginado
-
 $paging = new PHPPaging();
 $paging->agregarArray($datos);
 $paging->porPagina(6);
@@ -73,6 +83,7 @@ $paging->ejecutar();
     <!-- END THEME STYLES -->
     <link rel="shortcut icon" href="favicon.ico" />
 
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css">
 
     <!-- Include a polyfill for ES6 Promises (optional) for IE11 and Android browser -->
@@ -124,7 +135,7 @@ $paging->ejecutar();
                                 <!-- BEGIN: HOR NAV -->
                                 <!-- BEGIN: LAYOUT/HEADERS/MEGA-MENU-ONEPAGE -->
                                 <!-- BEGIN: MEGA MENU -->
-                                <?php include("menu.php") ?>
+                                <?php  include("menu.php") ?>
 
                                 <!-- END: MEGA MENU -->
                                 <!-- END: LAYOUT/HEADERS/MEGA-MENU-ONEPAGE -->
@@ -136,11 +147,7 @@ $paging->ejecutar();
                 <!-- END: HEADER -->
                 <!-- END: LAYOUT/HEADERS/HEADER-ONEPAGE -->
                 <!-- BEGIN: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
-                <?php  
-                    if($id_tipo==1){
-                        include("menuadmin.php");
-                    }
-                 ?>
+                <?php  include("menuadmin.php") ?>
                 <!-- END: LAYOUT/SIDEBARS/QUICK-SIDEBAR -->
                 <!-- BEGIN: PAGE CONTAINER -->
                 <div class="c-layout-page">
@@ -175,6 +182,7 @@ $paging->ejecutar();
                                                         <div class="c-author">
                                                             <!--By <a href="#"><span class="c-font-uppercase">Nick Strong</span></a>-->
                                                             FECHA: <span class="c-font-uppercase"><?php echo $datos['fecha-creacion'] ?></span>
+                                                            
                                                         </div>
 
                                                         <div class="c-panel">
@@ -202,8 +210,17 @@ $paging->ejecutar();
                                             </div>
                                             <?php }} ?>
                                         </div>
+
                                         <div class="c-pagination">
                                         <?php  echo "<br />Paginas<br />".$paging->fetchNavegacion(); ?>
+                                            <!--<ul class="c-content-pagination c-theme">
+                                                <li class="c-prev"><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                                                <li><a href="#">1</a></li>
+                                                <li class="c-active"><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li class="c-next"><a href="#"><i class="fa fa-angle-right"></i></a></li>
+                                            </ul>-->
                                         </div>
                                     </div>
                                 </div>
@@ -234,7 +251,7 @@ $paging->ejecutar();
                                     <div class="c-content-tab-1 c-theme c-margin-t-30">
                                         <div class="nav-justified">
                                             <ul class="nav nav-tabs nav-justified">
-                                               <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Entradas Recientes</a></li>
+                                                <li class="active"><a href="#blog_recent_posts" data-toggle="tab">Entradas Recientes</a></li>
                                             </ul>
                                             <div class="tab-content">
                                                 <div class="tab-pane active" id="blog_recent_posts">
@@ -347,7 +364,7 @@ $paging->ejecutar();
             });
         });
 
-        function eliminar(id,nombre){
+ function eliminar(id,nombre){
             swal({
               title: 'Quieres Eliminar La Entrada?\n'+nombre,
               text: "No puedes revertir el proceso!",
@@ -393,8 +410,7 @@ $paging->ejecutar();
                 
               }
             })           
-        }
-    </script>
+        }    </script>
     <!-- END: THEME SCRIPTS -->
     <!-- BEGIN: SLIDER SCRIPTS -->
     <!-- END: SLIDER SCRIPTS -->

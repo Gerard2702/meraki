@@ -47,7 +47,23 @@
                                 Algo grande se Aproxima...<br />
                             </div>
                             <!-- Your date here -->
-                            <div class="countdown-time animated bounceIn" data-date="2017-10-02 00:00:00" data-timer="900"></div>
+
+                            <?php
+
+                            //22 en G
+                            if(date("j")>=2 && date("G")>=3 && date("i")>=43){
+                                header("Location:../home.php");
+                            }
+                            ?>
+                            <!--<script type="text/javascript">
+                                var d = new Date();
+                                document.write(d.getDate()+"/"+d.getMonth()+"/"+d.getHours()+"/"+d.getMinutes());
+                                if(d.getHours()==19 && d.getMinutes()==36){
+                                    location.href = "../home.php";
+                                }
+                            </script>--> 
+
+                            <div class="countdown-time animated bounceIn" data-date="2017-10-02 14:00:00" data-timer="900"></div>
                             <br><br>
                             <div class="slogan">¡Siguenos en nuestras redes sociales!</div>
                             <div class="social">

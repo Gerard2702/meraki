@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 $conn -> conectar();
@@ -18,7 +19,7 @@ if(mysqli_num_rows($rs)>0){
         $datos[] = $revista;
     }
 }
-session_start();
+
 
 require_once('App/libs/PHPPaging.lib.php'); // Libreria para el Paginado
 

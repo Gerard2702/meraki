@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 $conn -> conectar();
@@ -15,7 +16,7 @@ $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $conn -> desconectar();
 
-session_start();
+
 
 ?>
 <!DOCTYPE html>
@@ -171,11 +172,11 @@ echo "<br />Paginas<br />".$paging->fetchNavegacion();*/
                                 </div>
                                 <div class="col-md-3">
                                     <!-- BEGIN: CONTENT/BLOG/BLOG-SIDEBAR-1 -->
-                                    <form action="#" method="post">
+                                    <form action="buscar.php" method="GET">
                                         <div class="input-group">
-                                            <input type="text" class="form-control c-square c-theme-border" placeholder="Buscar...">
+                                            <input type="text" name="buscar" id="buscar" class="form-control c-square c-theme-border" placeholder="Buscar..." required="">
                                             <span class="input-group-btn">
-                                                <button class="btn c-theme-btn c-theme-border c-btn-square" type="button">Buscar!</button>
+                                                <button class="btn c-theme-btn c-theme-border c-btn-square" type="submit">Buscar!</button>
                                             </span>
                                         </div>
                                     </form>
