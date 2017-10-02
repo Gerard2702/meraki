@@ -1,6 +1,8 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
+$id_tipo=$_SESSION['id_tipo'];
 $conn = new Conexion();
 $conn -> conectar();
 $sqlcategorias = "SELECT * FROM Categorias";
@@ -30,7 +32,7 @@ else{
     }
 }
 $conn -> desconectar();
-session_start();
+
 require_once('App/libs/PHPPaging.lib.php'); // Libreria para el Paginado
 $paging = new PHPPaging();
 $paging->agregarArray($datos);
@@ -153,7 +155,7 @@ $paging->ejecutar();
                 <div class="c-layout-breadcrumbs-1 c-bgimage c-subtitle c-fonts-uppercase c-fonts-bold c-bg-img-center" style="background-image: url(class/img/home7.jpg)">
                     <div class="container">
                         <div class="c-page-title c-pull-center">
-                            <h1 class="c-font-uppercase c-font-bold c-font-white">Meraki Magazine BLOG</h1>
+                            <a href="blog.php"><h1 class="c-font-uppercase c-font-bold c-font-white">Meraki Magazine BLOG</h1></a>
                         </div>
                     </div>
                 </div><!-- END: LAYOUT/BREADCRUMBS/BREADCRUMBS-3 -->
@@ -197,10 +199,12 @@ $paging->ejecutar();
                                                         <p>
                                                             <?php echo $datos['descripcion'] ?>
                                                         </p>
+                                                        <?php if($id_tipo==1){ ?>
                                                         <div class="">
                                                           <a href="editar.php?post=<?php echo $datos['id']?>" class="btn btn-info btn-xs" title="Editar"><i class="fa fa-cog"></i></a>
                                                             <a class="btn btn-danger btn-xs" title="Eliminar" onclick="eliminar('<?php echo $datos['id']?>','<?php echo $datos['titulo']?>')"><i class="fa fa-times" ></i></a>  
                                                         </div>
+                                                        <?php } ?>
                                                     </div>
                                                 </div>
                                             </div>
@@ -222,11 +226,11 @@ $paging->ejecutar();
                                 </div>
                                 <div class="col-md-3">
                                     <!-- BEGIN: CONTENT/BLOG/BLOG-SIDEBAR-1 -->
-                                    <form action="#" method="post">
+                                    <form action="buscar.php" method="GET">
                                         <div class="input-group">
-                                            <input type="text" class="form-control c-square c-theme-border" placeholder="Buscar...">
+                                            <input type="text" name="buscar" id="buscar" class="form-control c-square c-theme-border" placeholder="Buscar..." required="">
                                             <span class="input-group-btn">
-                                                <button class="btn c-theme-btn c-theme-border c-btn-square" type="button">Buscar!</button>
+                                                <button class="btn c-theme-btn c-theme-border c-btn-square" type="submit">Buscar!</button>
                                             </span>
                                         </div>
                                     </form>

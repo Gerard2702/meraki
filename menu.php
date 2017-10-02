@@ -27,6 +27,7 @@
         <li class="c-onepage-link ">
             <a href="home.php#contact" class="c-link">Contacto</a>
         </li>
+        <?php  if($_SESSION['id_tipo']==1){?>
         <li class="c-quick-sidebar-toggler-wrapper">    
             <a href="#" class="c-quick-sidebar-toggler">                    
                 <span class="c-line"></span>
@@ -34,5 +35,6 @@
                 <span class="c-line"></span>
             </a>
         </li>
+        <?php } ?>
     </ul>
 </nav>

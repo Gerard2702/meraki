@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 //$conn->conectar();
@@ -11,7 +12,7 @@ $conn->query("SET NAMES 'utf8'");
 $sqlcategorias = "SELECT * FROM Categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $conn->desconectar();
-session_start();
+
 
 if(isset($_GET['post'])){
     $conn->conectar();

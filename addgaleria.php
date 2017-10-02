@@ -1,12 +1,13 @@
 <?php
-
+session_start();
+include("App/login/validarlogin.php");
 include("App/config/database.php");
 $conn = new Conexion();
 //$conn->conectar();
 //$query="SELECT * FROM users WHERE email='$usuario' AND pass='$contrasena'";
 //$resp=$conn->query($query);
 //$conn->desconectar();
-session_start();
+
 
 if(isset($_POST['subir'])){
 
