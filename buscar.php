@@ -5,7 +5,7 @@ include("App/config/database.php");
 $id_tipo=$_SESSION['id_tipo'];
 $conn = new Conexion();
 $conn -> conectar();
-$sqlcategorias = "SELECT * FROM Categorias";
+$sqlcategorias = "SELECT * FROM categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $datos = array();
 

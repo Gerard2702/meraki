@@ -12,7 +12,7 @@ if(isset($_GET['titulo'])){
 $sqllimit = "SELECT * FROM entradas ORDER BY id DESC LIMIT 5";
 $rslimit = $conn->query($sqllimit);
 
-$sqlcategorias = "SELECT * FROM Categorias";
+$sqlcategorias = "SELECT * FROM categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $conn -> desconectar();
 

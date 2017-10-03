@@ -9,7 +9,7 @@ $conn = new Conexion();
 //$conn->desconectar();
 $conn -> conectar();
 $conn->query("SET NAMES 'utf8'");
-$sqlcategorias = "SELECT * FROM Categorias";
+$sqlcategorias = "SELECT * FROM categorias";
 $rscategorias = $conn->query($sqlcategorias);
 $conn->desconectar();
 
