@@ -265,7 +265,7 @@ session_start();
                             <div class="c-content-title-1">
                                 <h3 class="c-font-uppercase c-center c-font-bold c-txt-white">¿Quiénes somos?</h3>
                                 <div class="c-line-center c-theme-bg"></div>
-                                <p class="c-font-center">Lorem ipsum dolor consetuer elit adipicing sed diam ticidut erat votpat dolore</p>
+                                <p class="c-font-center">Somos más que tu revista quincenal....</p>
                             </div>
                             <!-- End-->
                             <!-- BEGIN: CONTENT/MISC/ABOUT-1 -->
@@ -276,24 +276,38 @@ session_start();
                                             <!-- Begin: Title 1 component -->
                                             <div class="c-content-title-1">
                                                 <h3 class="c-font-uppercase c-font-bold">Nosotros</h3>
-                                                <div class="c-line-left c-theme-bg"></div>
+                                               
+                                               <ul class="c-content-list-1 c-theme  c-font-uppercase">
+                                            
+                                                <div class="c-line-left c-theme-bg"> <li>Presentacion</li></div>
+                                             </ul>
                                             </div>
                                             <!-- End-->
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed elit diam nonummy nibh euismod tincidunt ut laoreet dolore magna aluam erat volutpat. Ut wisi enim ad minim veniam quis nostrud exerci et tation diam nisl ut aliquip ex ea commodo consequat euismod tincidunt ut laoreet dolore magna aluam. </p>
+                                            <p>
+
+Meraki es el vocablo griego que significa “hacer algo con amor y creatividad, poniendo el alma en ello”, es por eso que quienes nos reunimos para lanzar esta revista hemos tomado la decisión de poner dicho nombre a esta publicación, la cual es parte de la empresa “Desarrollo Económico Social” DESES.
+Director presidente DESES.
+ </p>
                                             <ul class="c-content-list-1 c-theme  c-font-uppercase">
-                                                <li>Lorem ipsum dolor sit amet</li>
-                                                <li>Lorem ipsum dolor sit amet</li>
-                                                <li>Lorem ipsum dolor sit amet</li>
-                                            </ul>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed elit diam nonummy nibh euismod tincidunt ut laoreet dolore.</p>
+                                              <div class="c-line-left c-theme-bg"> <li>Nuestro objetivo</li></div>
+                                             </ul>
+                                            <p>El objetivo de esta revista es llevar información de interés para los jóvenes y adultos contemporáneos, de tal forma que sirva para su formación y crecimiento personal y profesional, generando conocimientos y valores necesarios en estos tiempos difíciles para nuestra sociedad.</p>
                                         </div>
                                         <div class="col-sm-6 wow animated fadeInUp">
                                             <div class="c-content-client-logos-1">
                                                 <!-- Begin: Title 1 component -->
                                                 <div class="c-content-title-1">
-                                                    <h3 class="c-font-uppercase c-font-bold">Principales características</h3>
-                                                    <div class="c-line-left c-theme-bg"></div>
-                                                </div>
+                                                    <h3 class="c-font-uppercase c-font-bold">Meraki y siempre un poco más</h3>
+                                                  </div>
+                                                  <ul class="c-content-list-1 c-theme  c-font-uppercase">
+                                              <div class="c-line-left c-theme-bg"> <li>Formacion e información</li></div>
+                                             </ul>
+                                            Meraki, además de ser un instrumento de información y formación, también es una oportunidad para que los jóvenes puedan expresarse, escribiendo artículos técnicos, sociales, políticos o deportivos, de tal forma que puedan generar experiencia en sus áreas especializadas del saber.
+                                            <ul class="c-content-list-1 c-theme  c-font-uppercase">
+                                              <div class="c-line-left c-theme-bg"> <li>Conocimiento facil a alcance de ti</li></div>
+                                             </ul>
+Meraki tiene en formato electrónico y distribuida de manera quincenal y gratuita para todas aquellas personas que se hayan registrado en nuestras diferentes redes sociales. Además, contendrá una sección de cupones, el cual permitirá que nuestros lectores también ganen premios o descuentos al estar registrados o inscritos en nuestra publicación.
+En esta primera edición, tenemos una serie de artículos que han sido elaborados por jóvenes, dichos escritos son muy interesantes y de mucha actualidad en áreas tales como: turismo, productividad, tecnología y otros; deseamos que esta revista sea de mucho agrado y que nuestros lectores se multipliquen más por cada nueva edición, llevando así fe y esperanza para toda nuestra sociedad.
                                                 <!-- End-->
                                                 <div class="c-logos">
                                                     <div class="row">
@@ -349,7 +363,7 @@ session_start();
                                 <div class="c-content-title-1">
                                     <h3 class="c-font-uppercase c-center c-font-bold c-font-white">Contenidos</h3>
                                     <div class="c-line-center c-theme-bg"></div>
-                                    <p class="c-font-center c-text-white">Lorem ipsum dolor consetuer elit</p>
+                                    <p class="c-font-center c-text-white">Conoce un poco sobre nuestra pasión</p>
                                 </div>
                                 <!-- End-->
                                 <ul class="c-list">
@@ -359,7 +373,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Turismo</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                   Encontrarás los mejores lugares turísticos de El Salvador para viajar.
                                                 </p>
                                             </div>
                                         </div>
@@ -370,7 +384,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Emprendedurismo</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                   Técnicas para emprender y guías de ayuda elaboradas por expertos.                
                                                 </p>
                                             </div>
                                         </div>
@@ -381,7 +395,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Entrevistas</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                   conoce las historias y experiencias de  emprendedores sobre cómo llegaron al éxito tips, consejos y más.
                                                 </p>
                                             </div>
                                         </div>
@@ -394,7 +408,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Tecnologia</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                    futuras  y actuales tendencias del cambiante  mundo de la tecnología
                                                 </p>
                                             </div>
                                         </div>
@@ -405,7 +419,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Innovacion</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                    Herramientas de innovación en los ámbitos emprendedores e interpersonales
                                                 </p>
                                             </div>
                                         </div>
@@ -416,7 +430,7 @@ session_start();
                                             <div class="c-content c-content-left">
                                                 <h3 class="c-font-white c-font-uppercase c-font-bold">Restaurantes</h3>
                                                 <p class="c-text-white">
-                                                    Lorem ipsum dolor consetuer adipicing sed diam ticidut erat votpat dolore
+                                                    La gastronomia nos complementa , aqui veras  las mejores sugerencias en restaurantes de El Salvador para salir en familia y amigos. 
                                                 </p>
                                             </div>
                                         </div>
@@ -513,7 +527,7 @@ session_start();
                                         <div class="c-content-title-1">
                                             <h3  class="c-font-uppercase c-font-bold">Contactenos</h3>
                                             <div class="c-line-left"></div>
-                                            <p class="c-font-lowercase">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab cumque accusantium numquam deserunt in. Nostrum tenetur quas quibusdam repudiandae est atque fugiat, aperiam quia tempora repellat suscipit accusamus, aspernatur eos.</p>
+                                            <p class="c-font-lowercase">tu opinion es muy importantes para nosotros escribenos sera un placer saber de ti.</p>
                                         </div>
                                         <div class="col-md-6 col-md-offset-3 text-center">
                                         <form action="#">
@@ -546,7 +560,9 @@ session_start();
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <p class="c-copyright c-font-oswald c-font-14">
-                                    Copyright &copy; SAES.
+                                    Copyright &copy; SAES , no se permite la reproducción de este contenido ni su transmisión en forma o medio alguno, sea electrónica, mecanico, fotocopia, registró o de cualquier otro tipo, sin el permiso previo y por escrito del editor.
+
+Los artículos son responsabilidad de sus autores y no representan la linea editorial de la revista.
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">

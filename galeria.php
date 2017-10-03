@@ -170,7 +170,9 @@ $conn->desconectar();
                             <div class="row">
                                 <div class="col-md-6 col-sm-6">
                                     <p class="c-copyright c-font-oswald c-font-14">
-                                    Copyright &copy; SAES.
+                                    Copyright &copy; SAES , no se permite la reproducción de este contenido ni su transmisión en forma o medio alguno, sea electrónica, mecanico, fotocopia, registró o de cualquier otro tipo, sin el permiso previo y por escrito del editor.
+
+Los artículos son responsabilidad de sus autores y no representan la linea editorial de la revista.
                                     </p>
                                 </div>
                                 <div class="col-md-6 col-sm-6">
