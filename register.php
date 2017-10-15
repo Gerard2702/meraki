@@ -10,49 +10,34 @@ if(isset($_SESSION['user'])){
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Meraki Magazine</title>
-    <!-- Required Meta Tags Always Come First -->
+    <title>MerakiMagazine | Registro</title>
     <meta charset="utf-8">
     <meta content="" name="description" />
     <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" name="viewport" />
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <!-- Favicon -->
     <link rel="shortcut icon" href="class/img/logo.png">
-
-    <!-- ================== BEGIN BASE CSS STYLE ================== -->
     <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <script src='https://www.google.com/recaptcha/api.js'></script>
     <link href="class/plugins/jquery-ui/jquery-ui.min.css" rel="stylesheet" />
-    <link href="class/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="class/plugins/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="class/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="class/css/animate.css" rel="stylesheet" />
     <link href="class/css/style.css" rel="stylesheet" />
     <link href="class/css/style-responsive.css" rel="stylesheet" />
     <link href="class/css/teme.css" rel="stylesheet" id="theme" />
     <link href="class/css/custom.css" rel="stylesheet" id="theme" />
-
-    <!-- ================== END BASE CSS STYLE ================== -->
-    <!-- ================== BEGIN BASE JS ================== -->
     <link rel="stylesheet" href="class/css/pace.css">
     <script src="class/plugins/pace/pace.min.js"></script>
-    <!-- ================== END BASE JS ================== -->
 </head>
 <body class="pace-top">
-    <!-- begin #page-loader -->
     <div id="page-loader" class="fade in"><span class="spinner"></span></div>
-    <!-- end #page-loader -->
-
     <div class="login-cover">
         <div class="login-cover-image"><img src="class/img/home4.jpg" data-id="login-cover-image" alt="" /></div>
         <div class="login-cover-bg"></div>
     </div>
-    <!-- begin #page-container -->
     <div id="page-container" class="fade">
-        <!-- begin login -->
         <div class="login login-v2-reg" data-pageload-addclass="">
-            <!-- begin brand -->
-            <!-- end brand -->
             <div class="login-content">
                 <div class="text-center m-b-20">
                     <img src="class/img/logo2.png" alt="" class="text-center" height="60px" width="175px">
@@ -97,18 +82,12 @@ if(isset($_SESSION['user'])){
                 </form>
             </div>
         </div>
-        <!-- end login -->
-
     </div>
-    <!-- end page container -->
-    <!-- ================== BEGIN BASE JS ================== -->
     <script src="class/plugins/jquery/jquery-1.9.1.min.js"></script>
     <script src="class/plugins/jquery/jquery-migrate-1.1.0.min.js"></script>
     <script src="class/plugins/jquery-ui/jquery-ui.min.js"></script>
     <script src="class/plugins/bootstrap/js/bootstrap.min.js"></script>
     <script src="class/plugins/slimScroll/jquery.slimscroll.min.js"></script>
-    <!-- ================== END BASE JS ================== -->
-    <!-- ================== BEGIN PAGE LEVEL JS ================== -->
     <script src="class/js/login.js"></script>
     <script src="class/js/app.js"></script>
     <script>
@@ -127,11 +106,9 @@ if(isset($_SESSION['user'])){
         }
 
     </script>
-    <!-- ================== END PAGE LEVEL JS ================== -->
     <script>
         $(document).ready(function () {
             App.init();
-            //LoginV2.init();
         });
     </script>
     <?php if(isset($_GET['reg'])){

@@ -16,8 +16,8 @@
         $_SESSION['nombre'] = $user['nombre'];
 		$_SESSION['email'] = $user['email'];
         $_SESSION['val'] = "true";
-		if($user['id_tipo']==2){
-			header("Location:../../coming");
+		if($user['id_tipo']==2||$user['id_tipo']==1){
+			header("Location:../../home.php");
 		}
 	   exit();
 	} 

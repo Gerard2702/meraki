@@ -1,7 +1,7 @@
 <nav class="c-mega-menu c-mega-menu-onepage c-pull-right c-mega-menu-dark c-mega-menu-dark-mobile c-fonts-uppercase c-fonts-bold" data-onepage-animation-speed="700">
     <ul class="nav navbar-nav c-theme-nav">
         <li class="c-onepage-link c-active active">
-            <a href="#home" class="c-link">Inicio</a>
+            <a href="home.php" class="c-link">Inicio</a>
         </li>
         <li class="c-onepage-link ">
             <a href="home.php#about" class="c-link">Quienes Somos</a>
@@ -20,9 +20,6 @@
         </li>
         <li class="c-onepage-link ">
             <a href="galeria.php" class="c-link">Galeria</a>
-        </li>
-        <li class="c-onepage-link ">
-            <a href="#works" class="c-link">Cupones</a>
         </li>
         <li class="c-onepage-link ">
             <a href="home.php#contact" class="c-link">Contacto</a>

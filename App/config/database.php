@@ -4,7 +4,7 @@ class Conexion
 	private $servidor = "localhost";
 	private $usuario = "root";
 	private $password = "";
-	private $database = "miraki";
+	private $database = "merakidatabase";
 	private $conn;
 	public $respuesta;
 	//ABRIR LA CONEXION CON LA BASE DE DATOS

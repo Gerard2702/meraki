@@ -20,7 +20,7 @@
         $_SESSION['id_tipo'] = '2';
 
         $conn->conectar();
-        $query2 = "SELECT * FROM users_social WHERE social_id='$id' AND service='$service'";
+        $query2 = "SELECT * FROM users_social WHERE social_id='".$id."' AND service='".$service."'";
         $resp2=$conn->query($query2);
         $conn->desconectar();
         if(mysqli_num_rows($resp2)>0){
@@ -35,7 +35,6 @@
 				echo "true";
 			}
 			else{
-
 			}
         }	
 	   exit();
