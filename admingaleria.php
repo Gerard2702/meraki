@@ -4,59 +4,18 @@ include("App/login/validarlogin.php");
 include("App/login/validaradmin.php");
 include("App/config/database.php");
 $conn = new Conexion();
+$conn -> conectar();
+$conn->query("SET NAMES 'utf8'");
+
+$conn -> desconectar();
 
 
-if(isset($_POST['subir'])){
-
-    $target_path = "class/img/galeria/";
-    $target_path = $target_path . basename( $_FILES['imagen']['name']);
-
-    if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
-       $conn->conectar();
-       $img2 = $_FILES['imagen']['name'];
-       $titulo = $_POST['titulo'];
-       $descripcion = $_POST['descripcion'];
-       $fecha_actual = date("Y-m-d");
-       $categorias="";
-       if(isset($_POST['categoria1'])){
-            $categorias=$_POST['categoria1'];
-       }
-       if(isset($_POST['categoria2'])){
-            $categorias=$categorias." ".$_POST['categoria2'];
-       }
-       if(isset($_POST['categoria3'])){
-            $categorias=$categorias." ".$_POST['categoria3'];
-       }
-       if(isset($_POST['categoria4'])){
-            $categorias=$categorias." ".$_POST['categoria4'];
-       }
-       if(isset($_POST['categoria5'])){
-            $categorias=$categorias." ".$_POST['categoria5'];
-       }
-       if(isset($_POST['categoria6'])){
-            $categorias=$categorias." ".$_POST['categoria6'];
-       }
-       echo $categorias;
-       $sqlimg = "INSERT INTO galeria(titulo,descripcion,imagen,categoria) VALUES ('".$titulo."','".$descripcion."','".$img2."','".$categorias."')";
-       $rsimg = $conn->insert_delete_update($sqlimg);
-       $conn->desconectar();
-       if($rsimg==1){
-            header("Location:addgaleria.php?reg=1");
-       }
-       else{
-            header("Location:addgaleria.php?error=1");
-       }
-    } else{
-
-        echo "Ha ocurrido un error, trate de nuevo!";
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=gb18030">
-    <title>MerakiMagazine | Agregar Galeria</title>
+    <title>MerakiMagazine | Agregar Entrada</title>
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="description" />
@@ -75,9 +34,10 @@ if(isset($_POST['subir'])){
     <link href="class/css/home/plugins.css" rel="stylesheet" type="text/css" />
     <link href="class/css/home/components.css" id="style_components" rel="stylesheet" type="text/css" />
     <link href="class/css/home/themes_default.css" rel="stylesheet" id="style_theme" type="text/css" />
-    <link href="class/css/custom.css" rel="stylesheet" type="text/css" />
+    <link href="class/css/home/custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="class/img/logo.png">
 </head>
+
 <body id="body" class="c-layout-header-fixed c-layout-header-mobile-fixed">
     <div class="">
         <div id="">
@@ -98,10 +58,6 @@ if(isset($_POST['subir'])){
                                         <span class="c-line"></span>
                                     </button>
                                 </div>
-                                <form class="c-quick-search" action="#">
-                                    <input type="text" name="query" placeholder="Type to search..." value="" class="form-control" autocomplete="off">
-                                    <span class="c-theme-link">&times;</span>
-                                </form>
                                 <?php include("menu.php") ?>
                             </div>
                         </div>
@@ -112,35 +68,40 @@ if(isset($_POST['subir'])){
                     <div class="c-content-box c-size-md c-bg-white">
                         <div class="container">
                             <div class="c-content-title-1">
-                                <h3 class="c-center c-font-uppercase c-font-bold">Subir Imagen</h3>
+                                <h3 class="c-center c-font-uppercase c-font-bold">Agregar Entrada BLOG</h3>
                                 <div class="c-line-center c-theme-bg"></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="c-body">
                                         <div class="form-group m-b-20 alert alert-success" style="display: none" id="exito">
-                                            <p class="">Imagen subida correctamente.</p>
+                                            <p class="">Entrada publicada correctamente.</p>
                                         </div>
                                         <div class="form-group m-b-20 alert alert-danger" style="display: none" id="error">
-                                            <p class="">Error al Subir Imagen!.</p>
+                                            <p class="">Error al publicar entrada!.</p>
                                         </div>
-                                        <form class="form-horizontal" action="addgaleria.php" method="POST" enctype="multipart/form-data">
+                                        <form class="form-horizontal" action="addentrada.php" method="POST" enctype="multipart/form-data">
                                             <div class="form-group">
-                                                <label class="col-md-4 control-label">Titulo: </label>
-                                                <div class="col-md-6">
+                                                <label class="col-md-2 control-label">Titulo</label>
+                                                <div class="col-md-8">
                                                     <input class="form-control  c-square c-theme" name="titulo" placeholder="Titulo" type="text" required="" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label class="col-md-4 control-label">Descripción: </label>
-                                                <div class="col-md-6">
-                                                    <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" value="" autocomplete="off">
+                                                <label class="col-md-2 control-label">Descripción</label>
+                                                <div class="col-md-8">
+                                                    <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" value="" required="" autocomplete="off">
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label for="exampleInputFile" class="col-md-4 control-label">Seleccione el archivo de imagen: </label>
-                                                <div class="col-md-6">
-                                                    <input type="file" id="imagen" name="imagen" class="c-font-14" required="">
+                                                <div class="col-md-12">
+                                                    <textarea class="ckeditor form-control" id="editor1" name="editor1" rows="15" required=""></textarea>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="exampleInputFile" class="col-md-2 control-label">Imagen Principal</label>
+                                                <div class="col-md-4">
+                                                    <input type="file" id="inputImage" name="inputImage" class="c-font-14" required="">
                                                     <p class="help-block">
                                                         JPG, GIF, PNG
                                                     </p>
@@ -149,51 +110,24 @@ if(isset($_POST['subir'])){
                                                         <p class="">Error!. Tipo de archivo no aceptado</p>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-4 control-label">Categoria:</label>
-                                                <div class="col-md-6">
-                                                    <div class="checkbox">
+                                                <label class="col-md-2 control-label">Categorias</label>
+                                                <div class="col-md-4">
+                                                    <?php
+                                                    while($categorias = mysqli_fetch_array($rscategorias,MYSQLI_ASSOC)) {
+                                                    ?>
+                                                    <div class="radio">
                                                         <label>
-                                                            <input type="checkbox" value="lugares_turisticos" name="categoria1">
-                                                            lugares turisticos
+                                                            <input type="radio" required name="categorias" id="categorias" value="<?php echo $categorias['id'] ;?>"><?php echo $categorias['nombre'] ; ?>
                                                         </label>
                                                     </div>
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="emprendedurismo" name="categoria2">
-                                                            Emprenderurismo
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="entrevistas" name="categoria3">
-                                                            Entrevistas a empresarios
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="tecnologia" name="categoria4">
-                                                            Tecnologia
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="innovacion" name="categoria5">
-                                                            innovacion
-                                                        </label>
-                                                    </div>
-                                                    <div class="checkbox">
-                                                        <label>
-                                                            <input type="checkbox" value="restaurantes" name="categoria6">
-                                                            Restaurantes
-                                                        </label>
-                                                    </div>
+                                                    <?php
+                                                    }
+                                                    ?>
                                                 </div>
                                             </div>
                                             <div class="form-group c-margin-t-40">
                                                 <div class="col-sm-offset-4 col-md-8">
-                                                    <button type="submit" name="subir" id="subir" class="btn c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">Subir Imagen</button>
+                                                    <button type="submit" name="crear" id="crear" class="btn c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">Crear Entrada</button>
                                                 </div>
                                             </div>
                                         </form>
@@ -224,81 +158,18 @@ if(isset($_POST['subir'])){
     <script src="class/plugins/home/smooth-scroll/jquery.smooth-scroll.js" type="text/javascript"></script>
     <script src="class/plugins/home/typed/typed.min.js" type="text/javascript"></script>
     <script src="class/plugins/home/slider-bootstrap/bootstrap-slider.js" type="text/javascript"></script>
+    <script src="class/plugins/home/ckeditor/ckeditor.js"></script>
+    <script src="class/plugins/home/ckeditor/config.js"></script>
     <script src="class/js/home/components.js" type="text/javascript"></script>
     <script src="class/js/home/components-shop.js" type="text/javascript"></script>
     <script src="class/js/home/app.js" type="text/javascript"></script>
+
     <script>
         $(document).ready(function () {
             App.init();
         });
     </script>
-    <script>
-        $.fn.checkFileType = function (options) {
-            var defaults = {
-                allowedExtensions: [],
-                success: function (data) { },
-                error: function () { }
-            };
-            options = $.extend(defaults, options);
-            return this.each(function () {
-                $(this).on('change', function () {
-                    var value = $(this).val(),
-                        file = value.toLowerCase(),
-                        extension = file.substring(file.lastIndexOf('.') + 1);
-
-                    if ($.inArray(extension, options.allowedExtensions) == -1) {
-                        options.error();
-                        $(this).focus();
-                    } else {
-                        options.success($(this));
-                    }
-                });
-
-            });
-        };
-        $('#imagen').checkFileType({
-            allowedExtensions: ['jpg', 'png', 'jpeg'],
-            success: function (data) {
-                leerArchivo(data[0], "#imagenEvento");
-                $('#errorimg').hide();
-            },
-            error: function () {
-                $('#errorimg').show();
-
-            }
-        });
-        function leerArchivo(input, selectorRender) {
-            if (input.files && input.files[0]) {
-                var reader = new FileReader();
-
-                reader.onload = function (e) {
-                    $(selectorRender).attr('src', e.target.result);
-                }
-                reader.readAsDataURL(input.files[0]);
-            }
-        }
-    </script>
-    <script src="class/js/home/masonry-gallery.js" type="text/javascript"></script>
-    <?php if(isset($_GET['reg'])){
-    if($_GET['reg']==1){
-    ?>
-    <script>
-        $('#exito').show();
-    </script>
-
-    <?php
-    }
-    }
-    ?>
-    <?php if(isset($_GET['error'])){
-    if($_GET['error']==1){
-    ?>
-    <script>
-        $('#error').show();
-    </script>
-    <?php
-    }
-    }
-    ?>
+ 
 </body>
 </html>
+
