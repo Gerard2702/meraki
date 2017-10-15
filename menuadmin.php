@@ -21,7 +21,7 @@
             <h3>GALERIA</h3>
             <div class="c-settings">                
               <a href="addgaleria.php" class="btn btn-xs c-btn-white c-btn-border-1x">Agregar</a>
-              <a href="#" class="btn btn-xs c-btn-white c-btn-border-1x">Administrar</a>
+              <a href="admingaleria.php" class="btn btn-xs c-btn-white c-btn-border-1x">Administrar</a>
             </div>
         </div>      
     </div>

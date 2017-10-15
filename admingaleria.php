@@ -7,9 +7,9 @@ $conn = new Conexion();
 $conn -> conectar();
 $conn->query("SET NAMES 'utf8'");
 
+$sqllimit = "SELECT * FROM galeria ";
+$rslimit = $conn->query($sqllimit);
 $conn -> desconectar();
-
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -36,6 +36,10 @@ $conn -> desconectar();
     <link href="class/css/home/themes_default.css" rel="stylesheet" id="style_theme" type="text/css" />
     <link href="class/css/home/custom.css" rel="stylesheet" type="text/css" />
     <link rel="shortcut icon" href="class/img/logo.png">
+    <link href="class/plugins/DataTables/css/data-table.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.css">
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/6.9.1/sweetalert2.min.js"></script>
 </head>
 
 <body id="body" class="c-layout-header-fixed c-layout-header-mobile-fixed">
@@ -68,69 +72,45 @@ $conn -> desconectar();
                     <div class="c-content-box c-size-md c-bg-white">
                         <div class="container">
                             <div class="c-content-title-1">
-                                <h3 class="c-center c-font-uppercase c-font-bold">Agregar Entrada BLOG</h3>
+                                <h3 class="c-center c-font-uppercase c-font-bold">Admin Galeria</h3>
                                 <div class="c-line-center c-theme-bg"></div>
                             </div>
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="c-body">
-                                        <div class="form-group m-b-20 alert alert-success" style="display: none" id="exito">
-                                            <p class="">Entrada publicada correctamente.</p>
-                                        </div>
-                                        <div class="form-group m-b-20 alert alert-danger" style="display: none" id="error">
-                                            <p class="">Error al publicar entrada!.</p>
-                                        </div>
-                                        <form class="form-horizontal" action="addentrada.php" method="POST" enctype="multipart/form-data">
-                                            <div class="form-group">
-                                                <label class="col-md-2 control-label">Titulo</label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control  c-square c-theme" name="titulo" placeholder="Titulo" type="text" required="" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-md-2 control-label">Descripción</label>
-                                                <div class="col-md-8">
-                                                    <input class="form-control  c-square c-theme" name="descripcion" placeholder="Descripción" type="text" value="" required="" autocomplete="off">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class="col-md-12">
-                                                    <textarea class="ckeditor form-control" id="editor1" name="editor1" rows="15" required=""></textarea>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label for="exampleInputFile" class="col-md-2 control-label">Imagen Principal</label>
-                                                <div class="col-md-4">
-                                                    <input type="file" id="inputImage" name="inputImage" class="c-font-14" required="">
-                                                    <p class="help-block">
-                                                        JPG, GIF, PNG
-                                                    </p>
-                                                    <img id="imagenEvento" src="#" alt="Imagen Previa" class="c-overlay-object img-responsive" height="150" width="150" />
-                                                    <div class="form-group m-b-20 alert alert-danger" style="display: none" id="errorimg">
-                                                        <p class="">Error!. Tipo de archivo no aceptado</p>
-                                                    </div>
-                                                </div>
-                                                <label class="col-md-2 control-label">Categorias</label>
-                                                <div class="col-md-4">
+                                        <div class="table-responsive">
+                                            <table id="mitable" class="table table-hover table-condensed display" cellspacing="0">
+                                                <thead class="thead-inverse">
+                                                    <tr>
+                                                        <th class="col-md-1 text-center">#</th>
+                                                        <th class="col-md-1">Imagen</th>
+                                                        <th class="col-md-2">Titulo</th>
+                                                        <th class="col-md-6">Descripción</th>
+                                                        <th class="col-md-2 text-right">Opciones</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
                                                     <?php
-                                                    while($categorias = mysqli_fetch_array($rscategorias,MYSQLI_ASSOC)) {
+                                                    if(mysqli_num_rows($rslimit)>0){ $id=0;
+                                                    while($galeria = mysqli_fetch_array($rslimit,MYSQLI_ASSOC)){
                                                     ?>
-                                                    <div class="radio">
-                                                        <label>
-                                                            <input type="radio" required name="categorias" id="categorias" value="<?php echo $categorias['id'] ;?>"><?php echo $categorias['nombre'] ; ?>
-                                                        </label>
-                                                    </div>
+                                                    <tr>
+                                                        <td class="text-center"><?php echo $id=$id+1;?></td>
+                                                        <td class="text-left"><div class="c-image">
+                                                                <img src="class/img/galeria/<?php echo $galeria['imagen'] ?>" alt="" class="img-responsive">
+                                                            </div></td>
+                                                        <td class="text-left"><?php echo $galeria['titulo'];?></td>
+                                                        <td class="text-left"><?php echo $galeria['descripcion'];?></td>
+                                                        <td class="text-right"><a href="editargaleria.php?post=<?php echo $galeria['id']?>" class="btn btn-info btn-xs" title="Editar"><i class="fa fa-cog"></i></a>
+                                                            <a class="btn btn-danger btn-xs" title="Eliminar" onclick="eliminar('<?php echo $galeria['id']?>','<?php echo $galeria['titulo']?>')"><i class="fa fa-times"></i></a></td>
+                                                    </tr>
                                                     <?php
                                                     }
+                                                    }
                                                     ?>
-                                                </div>
-                                            </div>
-                                            <div class="form-group c-margin-t-40">
-                                                <div class="col-sm-offset-4 col-md-8">
-                                                    <button type="submit" name="crear" id="crear" class="btn c-theme-btn c-btn-square c-btn-uppercase c-btn-bold">Crear Entrada</button>
-                                                </div>
-                                            </div>
-                                        </form>
+                                                </tbody>
+                                            </table>
+                                        </div>       
                                     </div>
                                 </div>
                             </div>
@@ -160,14 +140,79 @@ $conn -> desconectar();
     <script src="class/plugins/home/slider-bootstrap/bootstrap-slider.js" type="text/javascript"></script>
     <script src="class/plugins/home/ckeditor/ckeditor.js"></script>
     <script src="class/plugins/home/ckeditor/config.js"></script>
+    <script src="class/plugins/DataTables/js/jquery.dataTables.min.js"></script>
     <script src="class/js/home/components.js" type="text/javascript"></script>
     <script src="class/js/home/components-shop.js" type="text/javascript"></script>
     <script src="class/js/home/app.js" type="text/javascript"></script>
 
     <script>
         $(document).ready(function () {
+            $('#mitable').DataTable({
+                    "pagingType": "full_numbers",
+                    "paging": true,
+                    "language": {
+                        "lengthMenu": "Mostrar _MENU_ registros por página",
+                        "zeroRecords": "No se encontraton registros",
+                        "info": "Mostrando Registros: _TOTAL_ ",
+                        "infoEmpty": "No se encontraton registros",
+                        "infoFiltered": "(filtered from _MAX_ total records)",
+                        "paginate": {
+                            "first": "Primera",
+                            "last": "Ultima",
+                            "next": "Siguiente",
+                            "previous": "Anterior"
+                        },
+                        "search": "Buscar: "
+                    }
+
+                });
             App.init();
         });
+
+        function eliminar(id,nombre){
+            swal({
+                title: 'Quieres Eliminar La Entrada?\n'+nombre,
+                text: "No puedes revertir el proceso!",
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Si, Eliminar!',
+                cancelButtonText: 'No, Cancelar!',
+                confirmButtonClass: 'btn btn-info',
+                cancelButtonClass: 'btn btn-danger',
+                buttonsStyling: false
+            }).then(function () {
+                $.ajax({
+                    type:"POST",
+                    url: "consultas.php",
+                    dataType:"text",
+                    data:{
+                        consulta:'eliminargaleria',
+                        id:id
+                    }
+                }).done(function(data) {
+                    if(data=="true"){
+                        swal(
+                        'Eliminado!',
+                        'La entrada se ha eliminado.',
+                        'success'
+                      )
+                        window.location="admingaleria.php";
+                    }
+                    if(data=="false"){
+                        swal(
+                       'Error!',
+                       'Ocurrio un error al eliminar la entrada.',
+                       'error'
+                     )
+                    }
+                });
+            }, function (dismiss) {
+                if (dismiss === 'cancel') {
+                }
+            })
+        }
     </script>
  
 </body>

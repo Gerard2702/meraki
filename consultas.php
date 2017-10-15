@@ -22,6 +22,19 @@ switch ($consulta) {
     $conn->desconectar();
     
     break;
+    case 'eliminargaleria':
+        $id = $_POST['id'];
+        $conn->conectar();
+        $sql = "DELETE FROM galeria where id='".$id."';";
+        $rs = $conn->insert_delete_update($sql);
+        if($rs==1){
+           echo "true"; 
+        }
+        else{
+            echo "false";
+        }
+        $conn->desconectar();
+        break;
   
   default:
     # code...

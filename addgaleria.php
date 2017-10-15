@@ -13,6 +13,7 @@ if(isset($_POST['subir'])){
 
     if(move_uploaded_file($_FILES['imagen']['tmp_name'], $target_path)) {
        $conn->conectar();
+       $conn->query("SET NAMES 'utf8'");
        $img2 = $_FILES['imagen']['name'];
        $titulo = $_POST['titulo'];
        $descripcion = $_POST['descripcion'];
